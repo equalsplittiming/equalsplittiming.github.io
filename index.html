@@ -193,35 +193,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .story-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 
 /* Overlapping photos style */
-/* Overlapping photos style - Fixed Resized Layout */
+/* Overlapping photos style - Fixed Side-by-Side Flex Layout */
 .overlap-wrap {
-  position: relative;
-  width: 100%;
-  min-height: 320px; /* Prevents container collapse */
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 15px;       /* Adds a clean space between the two images */
+  width: 100%;
+  padding: 20px 0;
 }
 .overlap-img {
-  position: absolute;
-  width: 44%; /* Shrunk significantly so they fit neatly */
-  max-width: 200px;
+  width: 45%;      /* Forces both images to take up less than half the space */
+  max-width: 180px; /* Puts a strict cap on how large they can get */
+  height: auto;
   aspect-ratio: 4/3;
   object-fit: cover;
   border: 3px solid var(--white);
-  box-shadow: 0 6px 20px rgba(15,21,66,0.15);
-  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,21,66,0.12);
+  border-radius: 6px;
 }
-/* Clean stagger alignment with NO rotation/tilt */
-.overlap-img.top-left {
-  top: 12%;
-  left: 12%;
-  z-index: 2;
-}
+/* Removing all absolute positioning and rotation rules */
+.overlap-img.top-left, 
 .overlap-img.bot-right {
-  bottom: 12%;
-  right: 12%;
-  z-index: 1;
+  position: static;
+  transform: none;
 }
 
 .story-photo-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;width:100%;height:100%}
