@@ -133,9 +133,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .mode-card{padding:.9rem 1.1rem;border:1px solid var(--light-gray);background:rgba(201,162,39,.02)}
 .mode-card-title{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:.25rem}
 .mode-card-desc{font-size:.82rem;font-weight:300;color:var(--gray);line-height:1.6}
-.prod-actions{display:flex;gap:.7rem;margin-bottom:1rem}
-.btn-buy{flex:1;padding:.95rem 1.75rem;background:var(--navy);color:var(--white);border:1.5px solid var(--navy);font-family:var(--font-body);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+.prod-actions{display:flex;gap:1rem;align-items:center;margin-bottom:1rem}
+.btn-buy{padding:.95rem 1.75rem;background:var(--navy);color:var(--white);border:1.5px solid var(--navy);font-family:var(--font-body);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s;display:inline-block;text-decoration:none}
 .btn-buy:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn-ghost-dark{font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:transparent;padding:.95rem 1.75rem;border:1.5px solid var(--navy);cursor:pointer;text-decoration:none;transition:all .2s;display:inline-block;font-family:var(--font-body)}
 .financial-note{font-size:.74rem;font-weight:300;line-height:1.6;color:var(--gray);padding:.9rem 1.1rem;border:1px solid var(--light-gray);border-left:3px solid var(--gold);margin-bottom:1.5rem}
 .financial-note a{color:var(--navy);font-weight:500;text-decoration:none;border-bottom:1px solid rgba(201,162,39,.4)}
 .financial-note a:hover{border-color:var(--gold)}
@@ -480,8 +481,8 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       </div>
 
       <div class="prod-actions fu d3">
-        <button class="btn-buy" onclick="openReserveModal()">Reserve a Unit</button>
-        <button class="btn-ghost-white" style="opacity:.5;cursor:default" title="Available once 501(c)(3) approved">Donate — Coming Soon</button>
+        <a href="#" class="btn-buy" onclick="openReserveModal();return false" style="display:inline-block;text-decoration:none">Reserve a Unit</a>
+        <a class="btn-ghost-dark" style="opacity:.5;cursor:default">Donate — Coming Soon</a>
       </div>
 
       <div class="financial-note fu d3">
@@ -652,12 +653,12 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <p class="modal-tag">Pre-Order</p>
     <h2>Reserve a Unit</h2>
     <p>We'll reach out when your unit is ready to ship. No payment now.</p>
-    <div data-fs-success id="reserve-success" class="form-success" style="display:none">
+    <div data-fs-success id="reserve-success" class="form-success">
       <div class="fs-icon">✓</div>
       <p>You're on the list. <strong>We'll be in touch.</strong><br>Questions? Email us at <a href="mailto:equalsplit01@gmail.com" style="color:var(--gold)">equalsplit01@gmail.com</a></p>
     </div>
     <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
-    <form id="form-reserve">
+    <form id="form-reserve" action="https://formspree.io/f/xgobzvld" method="POST">
       <div class="form-row"><label>Your Name</label><input type="text" name="name" data-fs-field placeholder="First and last name" required></div>
       <div class="form-row"><label>Email</label><input type="email" name="email" data-fs-field placeholder="you@example.com" required></div>
       <div class="form-row"><label>Anything else? (optional)</label><textarea name="note" placeholder="School, team, questions..."></textarea></div>
@@ -677,7 +678,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       <p>Got it. <strong>We'll be in touch soon.</strong><br>You can also reach us directly at <a href="mailto:equalsplit01@gmail.com" style="color:var(--gold)">equalsplit01@gmail.com</a></p>
     </div>
     <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
-    <form id="form-financial">
+    <form id="form-financial" action="https://formspree.io/f/mjgdokag" method="POST">
       <div class="form-row"><label>Name</label><input type="text" name="name" data-fs-field placeholder="Your name or organization" required></div>
       <div class="form-row"><label>Email</label><input type="email" name="email" data-fs-field placeholder="you@example.com" required></div>
       <div class="form-row"><label>School or Program</label><input type="text" name="school" placeholder="Name and location"></div>
@@ -725,6 +726,27 @@ document.querySelectorAll('.modal-overlay').forEach(o=>{
 window.formspree = window.formspree || function(){(formspree.q=formspree.q||[]).push(arguments)};
 formspree('initForm',{formElement:'#form-reserve',formId:'xgobzvld'});
 formspree('initForm',{formElement:'#form-financial',formId:'mjgdokag'});
+
+// Show success message after Formspree submits
+function attachSuccess(formId, successId) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action || (formId === 'form-reserve' ? 'https://formspree.io/f/xgobzvld' : 'https://formspree.io/f/mjgdokag'), {
+      method: 'POST', body: data, headers: { Accept: 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById(successId).style.display = 'block';
+    } else {
+      alert('Something went wrong. Please email us at equalsplit01@gmail.com');
+    }
+  });
+}
+attachSuccess('form-reserve', 'reserve-success');
+attachSuccess('form-financial', 'financial-success');
 const times=['1.983s','4.712s','2.381s','3.054s','1.876s','5.201s'];
 let ti=0;
 setInterval(()=>{
@@ -734,6 +756,5 @@ setInterval(()=>{
   setTimeout(()=>{ti=(ti+1)%times.length;el.textContent=times[ti];el.style.opacity='1'},320);
 },2600);
 </script>
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
