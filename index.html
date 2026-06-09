@@ -481,10 +481,11 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 
       <div class="prod-actions fu d3">
         <button class="btn-buy" onclick="openReserveModal()">Reserve a Unit</button>
+        <button class="btn-ghost-white" style="opacity:.5;cursor:default" title="Available once 501(c)(3) approved">Donate — Coming Soon</button>
       </div>
 
       <div class="financial-note fu d3">
-        On a tight budget or represent an underfunded program? We want to help. <a href="#" onclick="openFinancialModal();return false">Contact us directly</a> — no one gets left out because of cost.
+        Represent an underfunded school or program? <a href="#" onclick="openFinancialModal();return false">Apply for a free unit</a> — we review every application and do our best to help.
       </div>
     </div>
   </div>
@@ -596,6 +597,13 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
         <p class="v-body">We're student athletes from Oak Park who understood the problem firsthand. Every design decision comes from real coaches, real training, and real feedback from the track.</p>
       </div>
     </div>
+
+    <div style="margin-top:2.5rem;background:var(--navy-mid);padding:2.25rem 1.75rem;border-left:3px solid var(--gold)">
+      <p style="font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">Support the Mission</p>
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;letter-spacing:.04em;color:var(--white);margin-bottom:.75rem">DONATE</h3>
+      <p style="font-size:.86rem;font-weight:300;line-height:1.7;color:var(--gray);margin-bottom:1.25rem">Every dollar goes directly toward putting free timing gates in the hands of schools and programs that can't afford them. 501(c)(3) tax-deductible donations coming soon.</p>
+      <span style="display:inline-block;padding:.75rem 1.6rem;background:rgba(201,162,39,.08);border:1.5px solid rgba(201,162,39,.3);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,162,39,.5)">Donate — Coming Soon</span>
+    </div>
   </div>
 
   <div class="team-sec">
@@ -644,35 +652,38 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <p class="modal-tag">Pre-Order</p>
     <h2>Reserve a Unit</h2>
     <p>We'll reach out when your unit is ready to ship. No payment now.</p>
-    <div id="reserve-form">
-      <div class="form-row"><label>Your Name</label><input type="text" id="r-name" placeholder="First and last name"></div>
-      <div class="form-row"><label>Email</label><input type="email" id="r-email" placeholder="you@example.com"></div>
-      <div class="form-row"><label>Anything else? (optional)</label><textarea id="r-note" placeholder="School, team, questions..."></textarea></div>
-      <button class="form-submit" onclick="submitReserve()">Reserve My Spot</button>
-    </div>
-    <div class="form-success" id="reserve-success">
+    <div data-fs-success id="reserve-success" class="form-success" style="display:none">
       <div class="fs-icon">✓</div>
       <p>You're on the list. <strong>We'll be in touch.</strong><br>Questions? Email us at <a href="mailto:equalsplit01@gmail.com" style="color:var(--gold)">equalsplit01@gmail.com</a></p>
     </div>
+    <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
+    <form id="form-reserve">
+      <div class="form-row"><label>Your Name</label><input type="text" name="name" data-fs-field placeholder="First and last name" required></div>
+      <div class="form-row"><label>Email</label><input type="email" name="email" data-fs-field placeholder="you@example.com" required></div>
+      <div class="form-row"><label>Anything else? (optional)</label><textarea name="note" placeholder="School, team, questions..."></textarea></div>
+      <button class="form-submit" type="submit" data-fs-submit-btn>Reserve My Spot</button>
+    </form>
   </div>
 </div>
 
 <div class="modal-overlay" id="modal-financial">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-financial')">×</button>
-    <p class="modal-tag">Financial Support</p>
-    <h2>We've Got You</h2>
-    <p>If cost is a barrier — whether you're an individual athlete, a coach at an underfunded school, or a community program — reach out. We'll figure something out together.</p>
-    <div id="financial-form">
-      <div class="form-row"><label>Name</label><input type="text" id="f-name" placeholder="Your name or organization"></div>
-      <div class="form-row"><label>Email</label><input type="email" id="f-email" placeholder="you@example.com"></div>
-      <div class="form-row"><label>Tell us about your situation</label><textarea id="f-note" placeholder="School, program, what you're working with..."></textarea></div>
-      <button class="form-submit" onclick="submitFinancial()">Send Message</button>
-    </div>
-    <div class="form-success" id="financial-success">
+    <p class="modal-tag">Financial Aid</p>
+    <h2>Apply for a Free Unit</h2>
+    <p>If you're a coach, athlete, or program that can't afford commercial timing systems — tell us about your situation. This is separate from purchasing. We review every application and do our best to help.</p>
+    <div data-fs-success id="financial-success" class="form-success" style="display:none">
       <div class="fs-icon">✓</div>
       <p>Got it. <strong>We'll be in touch soon.</strong><br>You can also reach us directly at <a href="mailto:equalsplit01@gmail.com" style="color:var(--gold)">equalsplit01@gmail.com</a></p>
     </div>
+    <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
+    <form id="form-financial">
+      <div class="form-row"><label>Name</label><input type="text" name="name" data-fs-field placeholder="Your name or organization" required></div>
+      <div class="form-row"><label>Email</label><input type="email" name="email" data-fs-field placeholder="you@example.com" required></div>
+      <div class="form-row"><label>School or Program</label><input type="text" name="school" placeholder="Name and location"></div>
+      <div class="form-row"><label>Tell us about your situation</label><textarea name="situation" data-fs-field placeholder="What program are you with, and why do you need support?" required></textarea></div>
+      <button class="form-submit" type="submit" data-fs-submit-btn>Submit Application</button>
+    </form>
   </div>
 </div>
 
@@ -711,26 +722,9 @@ function closeModal(id){document.getElementById(id).classList.remove('open')}
 document.querySelectorAll('.modal-overlay').forEach(o=>{
   o.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
 });
-function submitReserve(){
-  const name=document.getElementById('r-name').value.trim();
-  const email=document.getElementById('r-email').value.trim();
-  const note=document.getElementById('r-note').value.trim();
-  if(!name||!email){alert('Please fill in your name and email.');return;}
-  const body=`Name: ${name}\nEmail: ${email}\nNote: ${note||'—'}`;
-  window.location.href=`mailto:equalsplit01@gmail.com?subject=Reserve a Unit — ${name}&body=${encodeURIComponent(body)}`;
-  document.getElementById('reserve-form').style.display='none';
-  document.getElementById('reserve-success').style.display='block';
-}
-function submitFinancial(){
-  const name=document.getElementById('f-name').value.trim();
-  const email=document.getElementById('f-email').value.trim();
-  const note=document.getElementById('f-note').value.trim();
-  if(!name||!email){alert('Please fill in your name and email.');return;}
-  const body=`Name: ${name}\nEmail: ${email}\nSituation: ${note||'—'}`;
-  window.location.href=`mailto:equalsplit01@gmail.com?subject=Financial Support Request — ${name}&body=${encodeURIComponent(body)}`;
-  document.getElementById('financial-form').style.display='none';
-  document.getElementById('financial-success').style.display='block';
-}
+window.formspree = window.formspree || function(){(formspree.q=formspree.q||[]).push(arguments)};
+formspree('initForm',{formElement:'#form-reserve',formId:'xgobzvld'});
+formspree('initForm',{formElement:'#form-financial',formId:'mjgdokag'});
 const times=['1.983s','4.712s','2.381s','3.054s','1.876s','5.201s'];
 let ti=0;
 setInterval(()=>{
@@ -740,5 +734,6 @@ setInterval(()=>{
   setTimeout(()=>{ti=(ti+1)%times.length;el.textContent=times[ti];el.style.opacity='1'},320);
 },2600);
 </script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
