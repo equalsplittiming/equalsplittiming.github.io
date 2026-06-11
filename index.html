@@ -53,6 +53,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-ghost-white:hover{border-color:rgba(248,246,240,.55);color:var(--white)}
 
 .hero-right{display:flex;align-items:center;justify-content:center;padding:3vw;position:relative;z-index:1}
+.hero-media-ph{width:100%;max-width:420px;aspect-ratio:16/10;border:1px dashed rgba(201,162,39,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,162,39,.5)}
 .device-card{background:var(--navy-mid);border:1px solid rgba(201,162,39,.28);padding:1.75rem;width:100%;max-width:420px;position:relative}
 .device-badge{position:absolute;top:-13px;left:1.75rem;background:var(--gold);color:var(--navy);font-size:.58rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .85rem}
 .device-screen-wrap{width:100%;aspect-ratio:4/3;background:var(--navy-light);border:1px solid rgba(201,162,39,.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;position:relative}
@@ -89,6 +90,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .c-card{padding:1.1rem 1.4rem;border:1px solid var(--light-gray)}
 .c-card.bad{border-left:3px solid #b03030}
 .c-card.good{border-left:3px solid var(--gold);background:rgba(201,162,39,.04)}
+.c-card.aid{border-left:3px solid var(--navy)}
+.c-card.aid .c-title{color:var(--navy)}
 .c-title{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
 .c-card.bad .c-title{color:#b03030}
 .c-card.good .c-title{color:var(--gold)}
@@ -110,9 +113,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .ph-label{font-size:.6rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,162,39,.4)}
 .ph-video-icon{width:48px;height:48px;opacity:.2;color:var(--gold)}
 .prod-tag{position:absolute;bottom:1.5rem;right:1.5rem;background:var(--navy-mid);border:1px solid rgba(201,162,39,.22);padding:.6rem .9rem;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
-.prod-thumbs{display:flex;height:76px}
-.p-thumb{flex:1;border-right:1px solid rgba(201,162,39,.1);background:var(--navy-mid);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,162,39,.35);gap:.4rem}
-.p-thumb:last-child{border-right:none}
+.prod-thumbs{display:flex;flex-wrap:wrap}
+.p-thumb{flex:1 1 33.33%;min-width:33.33%;height:62px;border-right:1px solid rgba(201,162,39,.1);border-top:1px solid rgba(201,162,39,.1);background:var(--navy-mid);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;font-size:.55rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(201,162,39,.35);gap:.4rem;text-align:center;padding:0 .4rem}
+.p-thumb:nth-child(3n){border-right:none}
 .p-thumb:hover,.p-thumb.active{background:rgba(201,162,39,.1);color:var(--gold)}
 .thumb-video-icon{width:13px;height:13px;flex-shrink:0}
 .prod-info{padding:4vw 4.5vw;display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
@@ -300,7 +303,8 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 @media(max-width:820px){
   .hero,.prod-layout,.about-hero,.problem-sec{grid-template-columns:1fr}
   .hero{height:auto;min-height:calc(100vh - 62px)}
-  .hero-right,.prod-main{min-height:280px}
+  .hero-right{min-height:280px}
+  .prod-main{min-height:300px}
   .v-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr;max-width:340px}
   .nav-links{display:none}
@@ -353,21 +357,11 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       </div>
     </div>
     <div class="hero-right">
-      <div class="device-card fu d2">
-        <div class="device-badge">Live Demo</div>
-        <div class="device-screen-wrap">
-          <div class="oled">
-            <span class="oled-label">MODE 1 RESULT</span>
-            <span class="oled-time" id="lcd-time">1.983s</span>
-            <span class="oled-hint">Press btn to cont.</span>
-          </div>
-        </div>
-        <div class="device-grid">
-          <div><div class="d-key">Sensor</div><div class="d-val">LiDAR</div></div>
-          <div><div class="d-key">Power</div><div class="d-val">USB-C Rechargeable</div></div>
-          <div><div class="d-key">Wireless</div><div class="d-val">100m+ Range</div></div>
-          <div><div class="d-key">Enclosure</div><div class="d-val">Custom 3D Print</div></div>
-        </div>
+      <!-- FUTURE MEDIA: montage of gates in use, founders video, user reviews.
+           When ready, replace this placeholder with a <video> or carousel. -->
+      <div class="hero-media-ph fu d2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(201,162,39,.45)" stroke-width="1.5" style="width:46px;height:46px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>EqualSplit in Action</span>
       </div>
     </div>
   </section>
@@ -381,14 +375,14 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <div class="marquee-track">
       <span>No Subscription</span><span class="sep">◆</span>
       <span>Precision Data for Every Athlete</span><span class="sep">◆</span>
+      <span>California Nonprofit</span><span class="sep">◆</span>
       <span>Built in Oak Park CA</span><span class="sep">◆</span>
       <span>High School Built</span><span class="sep">◆</span>
-      <span>Coming Soon</span><span class="sep">◆</span>
       <span>No Subscription</span><span class="sep">◆</span>
       <span>Precision Data for Every Athlete</span><span class="sep">◆</span>
+      <span>California Nonprofit</span><span class="sep">◆</span>
       <span>Built in Oak Park CA</span><span class="sep">◆</span>
       <span>High School Built</span><span class="sep">◆</span>
-      <span>Coming Soon</span><span class="sep">◆</span>
     </div>
   </div>
 
@@ -411,6 +405,10 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
         <div class="c-title">EqualSplit</div>
         <p>$79.99. No subscription. Two timing modes so you can measure what actually matters — acceleration splits and full speed profiles. Made for every athlete.</p>
       </div>
+      <div class="c-card aid">
+        <div class="c-title">Can't Afford It?</div>
+        <p>We donate units to underfunded schools and programs. Financial aid is real and we review every application. <a href="#" onclick="showPage('product');setTimeout(openFinancialModal,350);return false" style="color:var(--navy);font-weight:500;border-bottom:1px solid rgba(201,162,39,.5);text-decoration:none">Apply for a free unit →</a></p>
+      </div>
     </div>
   </section>
 </div>
@@ -420,29 +418,39 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
   <div class="prod-layout">
     <div class="prod-gallery">
       <div class="prod-main">
+        <!-- MEDIA SLOTS: when you have real media, add inside prod-main:
+             <img class="gallery-img" data-view="photo1" src="...">  (for photos)
+             <div class="gallery-video-wrap" data-view="vid1"><video src="..." controls muted playsinline></video></div>  (for videos)
+             The JS will show/hide them automatically and hide the placeholder. -->
         <div class="ph-box" id="gallery-ph">
-          <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(201,162,39,.5)" stroke-width="1.5">
+          <svg class="ph-icon" id="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(201,162,39,.5)" stroke-width="1.5">
             <rect x="3" y="3" width="18" height="13" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
           </svg>
-          <span class="ph-label">Front View</span>
+          <span class="ph-label" id="gallery-ph-label">Front View</span>
         </div>
         <div class="prod-tag">Custom 3D Enclosure</div>
       </div>
       <div class="prod-thumbs">
-        <div class="p-thumb active" onclick="selThumb(this,'front')">Front</div>
-        <div class="p-thumb" onclick="selThumb(this,'mode1')">
+        <div class="p-thumb active" onclick="selThumb(this,'photo1')">Front View</div>
+        <div class="p-thumb" onclick="selThumb(this,'photo2')">On the Track</div>
+        <div class="p-thumb" onclick="selThumb(this,'photo3')">Inside the Build</div>
+        <div class="p-thumb" onclick="selThumb(this,'vid1')">
           <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Mode 1
+          Mode 1 — 10m Fly
         </div>
-        <div class="p-thumb" onclick="selThumb(this,'mode2')">
+        <div class="p-thumb" onclick="selThumb(this,'vid2')">
           <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Mode 2
+          40-Yard Dash
+        </div>
+        <div class="p-thumb" onclick="selThumb(this,'vid3')">
+          <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Mode 2 — Demo
         </div>
       </div>
     </div>
 
     <div class="prod-info">
-      <p class="prod-cat">EqualSplit — Coming Soon</p>
+      <p class="prod-cat">EqualSplit — Available Now</p>
       <h1 class="prod-name fu">TIMING<br>GATE<br>SYSTEM</h1>
       <p class="prod-sub fu d1">Precision sprint timing for every athlete</p>
 
@@ -454,7 +462,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 
       <div class="prod-divider"></div>
 
-      <p class="prod-desc fu d2">A portable, self-contained sprint timing system built on LiDAR sensing. Measures acceleration splits, top-end speed, and full sprint profiles with millisecond-level precision. USB-C rechargeable, 100m+ wireless range between two gates, custom 3D-printed enclosure. No app. No subscription. Just data.</p>
+      <p class="prod-desc fu d2">A portable, self-contained sprint timing system built on LiDAR sensing. Measures acceleration splits, top-end speed, and full sprint profiles with millisecond-level precision. USB-C rechargeable, 100m+ wireless range between two gates, custom 3D-printed enclosure. No subscription. Just data — with a companion mobile app on the way for saving and tracking results over time.</p>
 
       <div class="prod-modes fu d2">
         <div class="prod-modes-label">Two Timing Modes, One Device</div>
@@ -481,7 +489,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       </div>
 
       <div class="prod-actions fu d3">
-        <a href="#" class="btn-buy" onclick="openReserveModal();return false" style="display:inline-block;text-decoration:none">Reserve a Unit</a>
+        <a href="#" id="main-cta-btn" class="btn-buy" style="display:inline-block;text-decoration:none">Buy Now — $79.99</a>
         <a class="btn-ghost-dark" style="opacity:.5;cursor:default">Donate — Coming Soon</a>
       </div>
 
@@ -617,13 +625,13 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
         <div class="team-avatar">LL</div>
         <div class="team-name">Louis Liu</div>
         <div class="team-role">Co-Founder</div>
-        <p class="team-bio">Student athlete from Oak Park, CA. Self-taught hardware engineer — learned microcontrollers, LiDAR, and PCB design from YouTube and Tinkercad. Leads hardware development. Contact: (805) 367-6757</p>
+        <p class="team-bio">Student athlete from Oak Park, CA. Self-taught engineer — learned microcontrollers, sensors, CAD, and PCB design from resources online. Leads hardware development.<br>Contact: (805) 367-6757<br>louisliu266@gmail.com</p>
       </div>
       <div class="team-card">
         <div class="team-avatar">JS</div>
         <div class="team-name">Jayden Stanislaus</div>
         <div class="team-role">Co-Founder</div>
-        <p class="team-bio">Co-builder and co-founder from Oak Park, CA. Collaborates on product design, real-world testing, and the mission to put timing gates in the hands of athletes who need them most. Contact: (805) 300-0542</p>
+        <p class="team-bio">Co-builder and co-founder from Oak Park, CA. Collaborates on product design, real-world testing, and the mission to put timing gates in the hands of athletes who need them most.<br>Contact: (805) 300-0542<br>jaydenstani28@gmail.com</p>
       </div>
     </div>
   </div>
@@ -679,10 +687,23 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     </div>
     <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
     <form id="form-financial" action="https://formspree.io/f/mjgdokag" method="POST">
-      <div class="form-row"><label>Name</label><input type="text" name="name" data-fs-field placeholder="Your name or organization" required></div>
+      <div class="form-row"><label>Your Name</label><input type="text" name="name" data-fs-field placeholder="First and last name" required></div>
       <div class="form-row"><label>Email</label><input type="email" name="email" data-fs-field placeholder="you@example.com" required></div>
-      <div class="form-row"><label>School or Program</label><input type="text" name="school" placeholder="Name and location"></div>
-      <div class="form-row"><label>Tell us about your situation</label><textarea name="situation" data-fs-field placeholder="What program are you with, and why do you need support?" required></textarea></div>
+      <div class="form-row"><label>Type of Program</label>
+        <select name="program_type" required>
+          <option value="" disabled selected>Select one</option>
+          <option>High School Team</option>
+          <option>Club Team</option>
+          <option>Community / Youth Program</option>
+          <option>Individual Athlete</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label>School or Program Name</label><input type="text" name="school" placeholder="e.g. Lincoln High Track & Field" required></div>
+      <div class="form-row"><label>City & State</label><input type="text" name="location" placeholder="e.g. Fresno, CA" required></div>
+      <div class="form-row"><label>How many athletes would benefit?</label><input type="text" name="athletes" placeholder="e.g. 25"></div>
+      <div class="form-row"><label>How do you time sprints now?</label><input type="text" name="current_timing" placeholder="e.g. hand timing with stopwatch"></div>
+      <div class="form-row"><label>Tell us about your situation</label><textarea name="situation" data-fs-field placeholder="Why does your program need support?" required></textarea></div>
       <button class="form-submit" type="submit" data-fs-submit-btn>Submit Application</button>
     </form>
   </div>
@@ -697,16 +718,39 @@ function showPage(n){
   if(el)el.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function selThumb(b,view){
+// ── GALLERY ─────────────────────────────────────────────
+const galleryViews = {
+  photo1:{label:'Front View',      video:false},
+  photo2:{label:'On the Track',    video:false},
+  photo3:{label:'Inside the Build',video:false},
+  vid1:  {label:'Mode 1 — 10m Fly',video:true},
+  vid2:  {label:'40-Yard Dash',    video:true},
+  vid3:  {label:'Mode 2 — Demo',   video:true}
+};
+function selThumb(btn,view){
   document.querySelectorAll('.p-thumb').forEach(x=>x.classList.remove('active'));
-  b.classList.add('active');
+  btn.classList.add('active');
+  // If real media with matching data-view exists, show it and hide placeholder
+  const allMedia=document.querySelectorAll('.gallery-img,.gallery-video-wrap');
+  let found=null;
+  allMedia.forEach(m=>{
+    m.classList.remove('active');
+    const v=m.querySelector('video'); if(v)v.pause();
+    if(m.dataset.view===view) found=m;
+  });
   const ph=document.getElementById('gallery-ph');
-  const labels={front:'Front View',mode1:'Mode 1 — Video',mode2:'Mode 2 — Video'};
-  const icons={front:false,mode1:true,mode2:true};
+  if(found){
+    found.classList.add('active');
+    if(ph)ph.classList.add('hidden');
+    return;
+  }
+  // Otherwise update the placeholder label/icon
   if(ph){
-    ph.querySelector('.ph-label').textContent=labels[view]||'';
-    const icon=ph.querySelector('.ph-icon');
-    if(icons[view]){
+    ph.classList.remove('hidden');
+    const info=galleryViews[view]||{label:'',video:false};
+    document.getElementById('gallery-ph-label').textContent=info.label+(info.video?' — Video':'');
+    const icon=document.getElementById('gallery-ph-icon');
+    if(info.video){
       icon.innerHTML='<polygon points="5 3 19 12 5 21 5 3"/>';
       icon.setAttribute('fill','rgba(201,162,39,.4)');
       icon.setAttribute('stroke','none');
@@ -717,12 +761,29 @@ function selThumb(b,view){
     }
   }
 }
+// ── STORE MODE ──────────────────────────────────────────
+// Switch to "waitlist" when sold out or need build time
+const STORE_MODE = "buy"; // "buy" or "waitlist"
+const SQUARE_LINK = "https://square.link/u/JSqmHsi5";
+
 function openReserveModal(){document.getElementById('modal-reserve').classList.add('open')}
 function openFinancialModal(){document.getElementById('modal-financial').classList.add('open')}
 function closeModal(id){document.getElementById(id).classList.remove('open')}
 document.querySelectorAll('.modal-overlay').forEach(o=>{
   o.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
 });
+
+// Wire up the main CTA button based on mode
+const ctaBtn = document.getElementById('main-cta-btn');
+if(ctaBtn){
+  if(STORE_MODE === "buy"){
+    ctaBtn.textContent = "Buy Now — $79.99";
+    ctaBtn.onclick = function(e){ e.preventDefault(); window.open(SQUARE_LINK,'_blank'); };
+  } else {
+    ctaBtn.textContent = "Join Waitlist";
+    ctaBtn.onclick = function(e){ e.preventDefault(); openReserveModal(); };
+  }
+}
 window.formspree = window.formspree || function(){(formspree.q=formspree.q||[]).push(arguments)};
 formspree('initForm',{formElement:'#form-reserve',formId:'xgobzvld'});
 formspree('initForm',{formElement:'#form-financial',formId:'mjgdokag'});
@@ -747,14 +808,6 @@ function attachSuccess(formId, successId) {
 }
 attachSuccess('form-reserve', 'reserve-success');
 attachSuccess('form-financial', 'financial-success');
-const times=['1.983s','4.712s','2.381s','3.054s','1.876s','5.201s'];
-let ti=0;
-setInterval(()=>{
-  const el=document.getElementById('lcd-time');
-  if(!el)return;
-  el.style.opacity='0';
-  setTimeout(()=>{ti=(ti+1)%times.length;el.textContent=times[ti];el.style.opacity='1'},320);
-},2600);
 </script>
 </body>
 </html>
