@@ -5,6 +5,12 @@
 <meta name="google-site-verification" content="oKEwPFap2GtLccDDO1K5YT5ziAmQmeML7I-KfI_IcK8" />
 <title>EqualSplit — Precision Sprint Timing for Every Athlete</title>
 <meta name="description" content="EqualSplit is a $79.99 LiDAR sprint timing gate system with no subscription. Built by high school athletes in Oak Park, CA. Every unit sold funds a free one for an underfunded program.">
+<link rel="icon" type="image/png" href="logo.png">
+<meta property="og:title" content="EqualSplit — Precision Sprint Timing for Every Athlete">
+<meta property="og:description" content="$79.99 LiDAR timing gates, no subscription. Every unit sold funds a free one for an underfunded program.">
+<meta property="og:image" content="https://equalsplit.org/images/equalsplit-product-photo-1.jpg">
+<meta property="og:url" content="https://equalsplit.org">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -54,7 +60,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-ghost-white:hover{border-color:rgba(248,246,240,.55);color:var(--white)}
 
 .hero-right{display:flex;align-items:center;justify-content:center;padding:3vw;position:relative;z-index:1}
-.hero-media-ph{width:100%;max-width:420px;aspect-ratio:16/10;border:1px dashed rgba(201,162,39,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(201,162,39,.5)}
+.hero-video{height:100%;max-height:calc(75vh - 62px - 4vw);width:auto;max-width:100%;object-fit:contain;border:1px solid rgba(201,162,39,.3);box-shadow:0 8px 40px rgba(0,0,0,.45);border-radius:6px;background:#000}
 .device-card{background:var(--navy-mid);border:1px solid rgba(201,162,39,.28);padding:1.75rem;width:100%;max-width:420px;position:relative}
 .device-badge{position:absolute;top:-13px;left:1.75rem;background:var(--gold);color:var(--navy);font-size:.58rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .85rem}
 .device-screen-wrap{width:100%;aspect-ratio:4/3;background:var(--navy-light);border:1px solid rgba(201,162,39,.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;position:relative}
@@ -301,14 +307,21 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 .d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}.d4{animation-delay:.46s}
 
 /* RESPONSIVE */
+@media(max-width:480px){.nav-logo>div:last-child{display:none}}
 @media(max-width:820px){
   .hero,.prod-layout,.about-hero,.problem-sec{grid-template-columns:1fr}
   .hero{height:auto;min-height:calc(100vh - 62px)}
   .hero-right{min-height:280px}
+  .hero-video{max-height:70vh}
   .prod-main{min-height:300px}
   .v-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr;max-width:340px}
-  .nav-links{display:none}
+  .nav-links{gap:1.1rem}
+  .nav-links a{font-size:.62rem}
+  .nav-sub{display:none}
+  .nav-wordmark{font-size:1.05rem}
+  .nav-cta{padding:.45rem .85rem;font-size:.62rem}
+  nav{padding:.7rem 3vw;gap:.5rem}
   footer{grid-template-columns:1fr;text-align:center}
   .f-right{text-align:center}
   .t-inner{flex-direction:column;gap:.75rem}
@@ -326,7 +339,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo" onclick="showPage('home');return false">
-    <div class="nav-emblem">ES</div>
+    <div class="nav-emblem"><img src="logo.png" alt="EqualSplit logo" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
     <div>
       <div class="nav-wordmark">EQUALSPLIT</div>
       <div class="nav-sub">Precision Data for Every Athlete</div>
@@ -337,7 +350,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <li><a href="#" onclick="showPage('product');return false" id="nav-product">Product</a></li>
     <li><a href="#" onclick="showPage('about');return false" id="nav-about">Our Story</a></li>
   </ul>
-  <a href="#" class="nav-cta" onclick="showPage('product');return false">Pre-Order</a>
+  <a href="#" class="nav-cta" id="nav-cta-btn" onclick="showPage('product');return false">Buy</a>
 </nav>
 
 <!-- ════════ HOME ════════ -->
@@ -358,12 +371,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       </div>
     </div>
     <div class="hero-right">
-      <!-- FUTURE MEDIA: montage of gates in use, founders video, user reviews.
-           When ready, replace this placeholder with a <video> or carousel. -->
-      <div class="hero-media-ph fu d2">
-        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(201,162,39,.45)" stroke-width="1.5" style="width:46px;height:46px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        <span>EqualSplit in Action</span>
-      </div>
+      <video class="hero-video fu d2" src="videos/equalsplit-home.mp4" autoplay muted loop playsinline></video>
     </div>
   </section>
 
@@ -396,11 +404,12 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       </div>
       <p class="sec-body">Good coaching needs real numbers. Timing gates give you split data — how fast an athlete accelerates, where their top end is, how they compare week to week. Without that, you're guessing. Hand timing is off by a few tenths at best. That's not nothing. In sprinting, that's everything.</p>
       <p class="sec-body">The schools that can afford the tools get the data. Everyone else makes do. We got tired of that being the way it works.</p>
+      <p class="sec-body">Times are dropping at the high school, collegiate, and professional levels — and advancing technology, including timing gates, is a big part of why. We're working to equal the field, so that edge isn't reserved for the programs that can pay for it and talent in underserved communities can reach its full potential.</p>
     </div>
     <div class="compare-stack">
       <div class="c-card bad">
         <div class="c-title">Commercial Systems</div>
-        <p>$350 – $1,500+ per unit, often with monthly subscription fees. Accessible only to elite and well-funded programs.</p>
+        <p>$350 – $1,500+ per unit for systems with similar or worse functionality — often with monthly subscription fees on top. Accessible only to elite and well-funded programs.</p>
       </div>
       <div class="c-card good">
         <div class="c-title">EqualSplit</div>
@@ -423,25 +432,30 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
              <img class="gallery-img" data-view="photo1" src="...">  (for photos)
              <div class="gallery-video-wrap" data-view="vid1"><video src="..." controls muted playsinline></video></div>  (for videos)
              The JS will show/hide them automatically and hide the placeholder. -->
-        <div class="ph-box" id="gallery-ph">
+        <img class="gallery-img active" data-view="photo1" src="images/equalsplit-product-photo-1.jpg" alt="Two EqualSplit timing gates set up on the track at sunset">
+        <img class="gallery-img" data-view="photo2" src="images/equalsplit-product-photo-2.jpg" alt="EqualSplit timing gate on its tripod beside the field">
+        <img class="gallery-img" data-view="photo3" src="images/equalsplit-product-photo-3.jpg" alt="EqualSplit timing gate standing on the track">
+        <div class="gallery-video-wrap" data-view="vid1"><video src="videos/equalsplit-mode1-10m-fly.mp4" controls preload="metadata" playsinline></video></div>
+        <div class="gallery-video-wrap" data-view="vid2"><video src="videos/equalsplit-mode1-40yd-dash.mp4" controls preload="metadata" playsinline></video></div>
+        <div class="gallery-video-wrap" data-view="vid3"><video src="videos/equalsplit-mode2-demo.mp4" controls preload="metadata" playsinline></video></div>
+        <div class="ph-box hidden" id="gallery-ph">
           <svg class="ph-icon" id="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(201,162,39,.5)" stroke-width="1.5">
             <rect x="3" y="3" width="18" height="13" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
           </svg>
-          <span class="ph-label" id="gallery-ph-label">Front View</span>
+          <span class="ph-label" id="gallery-ph-label">Photo 1</span>
         </div>
-        <div class="prod-tag">Custom 3D Enclosure</div>
       </div>
       <div class="prod-thumbs">
-        <div class="p-thumb active" onclick="selThumb(this,'photo1')">Front View</div>
-        <div class="p-thumb" onclick="selThumb(this,'photo2')">On the Track</div>
-        <div class="p-thumb" onclick="selThumb(this,'photo3')">Inside the Build</div>
+        <div class="p-thumb active" onclick="selThumb(this,'photo1')">Photo 1</div>
+        <div class="p-thumb" onclick="selThumb(this,'photo2')">Photo 2</div>
+        <div class="p-thumb" onclick="selThumb(this,'photo3')">Photo 3</div>
         <div class="p-thumb" onclick="selThumb(this,'vid1')">
           <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           Mode 1 — 10m Fly
         </div>
         <div class="p-thumb" onclick="selThumb(this,'vid2')">
           <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          40-Yard Dash
+          Mode 1 — 40-Yard Dash
         </div>
         <div class="p-thumb" onclick="selThumb(this,'vid3')">
           <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -469,14 +483,15 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
         <div class="prod-modes-label">Two Timing Modes, One Device</div>
         <div class="mode-cards">
           <div class="mode-card">
-            <div class="mode-card-title">Mode 1 — A to B Split</div>
-            <p class="mode-card-desc">Start at gate one, finish at gate two. Get a clean split time — perfect for measuring reaction off the line or timed fly-ins.</p>
+            <div class="mode-card-title">Mode 1 — Gate 1 to Gate 2 Split</div>
+            <p class="mode-card-desc">The clock starts when Gate 1 is passed and stops when Gate 2 is passed. A clean split time — perfect for flys (10m, 20m, 30m), 40-yard dashes, and more.</p>
           </div>
           <div class="mode-card">
             <div class="mode-card-title">Mode 2 — Speed Profile</div>
-            <p class="mode-card-desc">Multi-split breakdown of your full sprint — see where you're accelerating, where you're hitting top end, and where you're losing it.</p>
+            <p class="mode-card-desc">A multi-split breakdown of your full sprint. The timer starts on the release of Button 2 and records button release to Gate 1, Gate 1 to Gate 2, and button release to Gate 2 — a breakdown of acceleration and top-end in one run.</p>
           </div>
         </div>
+        <div style="margin-top:.7rem;display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.25);padding:.4rem .85rem;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Companion App — Coming Soon</div>
       </div>
 
       <div class="warranty-strip fu d3">
@@ -548,10 +563,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       <!-- Item 3: Now — placeholder -->
       <div class="story-item">
         <div class="story-photo">
-          <div class="story-photo-ph">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="13" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span>Final Product</span>
-          </div>
+          <img src="images/equalsplit-product-photo-1.jpg" alt="Finished EqualSplit timing gates on the track at sunset">
         </div>
         <div class="story-text">
           <div class="story-period"><span class="story-dot current"></span>Now</div>
@@ -659,7 +671,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 <div class="modal-overlay" id="modal-reserve">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('modal-reserve')">×</button>
-    <p class="modal-tag">Pre-Order</p>
+    <p class="modal-tag">Reserve</p>
     <h2>Reserve a Unit</h2>
     <p>We'll reach out when your unit is ready to ship. No payment now.</p>
     <div data-fs-success id="reserve-success" class="form-success">
@@ -721,12 +733,12 @@ function showPage(n){
 }
 // ── GALLERY ─────────────────────────────────────────────
 const galleryViews = {
-  photo1:{label:'Front View',      video:false},
-  photo2:{label:'On the Track',    video:false},
-  photo3:{label:'Inside the Build',video:false},
+  photo1:{label:'Photo 1',video:false},
+  photo2:{label:'Photo 2',video:false},
+  photo3:{label:'Photo 3',video:false},
   vid1:  {label:'Mode 1 — 10m Fly',video:true},
-  vid2:  {label:'40-Yard Dash',    video:true},
-  vid3:  {label:'Mode 2 — Demo',   video:true}
+  vid2:  {label:'Mode 1 — 40-Yard Dash',video:true},
+  vid3:  {label:'Mode 2 — Demo',video:true}
 };
 function selThumb(btn,view){
   document.querySelectorAll('.p-thumb').forEach(x=>x.classList.remove('active'));
@@ -774,14 +786,19 @@ document.querySelectorAll('.modal-overlay').forEach(o=>{
   o.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
 });
 
-// Wire up the main CTA button based on mode
+// Wire up the CTA buttons based on mode
 const ctaBtn = document.getElementById('main-cta-btn');
-if(ctaBtn){
-  if(STORE_MODE === "buy"){
+const navCta = document.getElementById('nav-cta-btn');
+if(STORE_MODE === "buy"){
+  if(navCta) navCta.textContent = "Buy";
+  if(ctaBtn){
     ctaBtn.textContent = "Buy Now — $79.99";
     ctaBtn.onclick = function(e){ e.preventDefault(); window.open(SQUARE_LINK,'_blank'); };
-  } else {
-    ctaBtn.textContent = "Join Waitlist";
+  }
+} else {
+  if(navCta) navCta.textContent = "Reserve";
+  if(ctaBtn){
+    ctaBtn.textContent = "Reserve a Unit";
     ctaBtn.onclick = function(e){ e.preventDefault(); openReserveModal(); };
   }
 }
