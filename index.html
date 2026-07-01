@@ -273,6 +273,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .t-text{font-size:1.25rem;font-weight:300;font-style:italic;line-height:1.6;color:var(--navy);margin-bottom:.9rem}
 .t-attr{font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 
+/* TESTIMONIALS PAGE */
+.tst-hero{background:var(--navy);padding:6vw 7vw 4.5vw;position:relative;overflow:hidden}
+.tst-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(201,162,39,.07) 0%,transparent 60%);pointer-events:none}
+.tst-hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,4.6vw,4.2rem);line-height:.92;letter-spacing:.03em;color:var(--white);position:relative;z-index:1}
+.tst-hero h1 .gold{color:var(--gold)}
+.tst-hero p{position:relative;z-index:1;margin-top:1.2rem;max-width:520px;font-size:.92rem;font-weight:300;line-height:1.8;color:rgba(248,246,240,.55)}
+.tst-featured{background:var(--offwhite);padding:4.5vw 7vw;border-bottom:1px solid var(--light-gray)}
+.tst-featured .t-text{font-size:clamp(1.3rem,2.1vw,1.7rem)}
+.tst-grid-sec{padding:4.5vw 7vw;border-bottom:1px solid var(--light-gray)}
+.tst-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2rem}
+.tst-card{background:var(--white);border:1px solid var(--light-gray);border-top:3px solid var(--gold);padding:1.9rem 1.75rem;display:flex;flex-direction:column;gap:1rem}
+.tst-card p{font-size:.92rem;font-weight:300;font-style:italic;line-height:1.75;color:var(--navy)}
+.tst-card .t-attr{margin-top:auto}
+@media(max-width:760px){.tst-grid{grid-template-columns:1fr}}
+
+
 /* VALUES */
 .values-sec{background:var(--navy);padding:5vw 7vw;border-bottom:1px solid rgba(201,162,39,.12)}
 .v-header{margin-bottom:2.75rem}
@@ -358,6 +374,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <li><a href="#" onclick="showPage('home');return false" id="nav-home" class="active">Home</a></li>
     <li><a href="#" onclick="showPage('product');return false" id="nav-product">Product</a></li>
     <li><a href="#" onclick="showPage('about');return false" id="nav-about">Our Story</a></li>
+    <li><a href="#" onclick="showPage('testimonials');return false" id="nav-testimonials">Testimonials</a></li>
   </ul>
   <a href="#" class="nav-cta" id="nav-cta-btn" onclick="showPage('product');return false">Buy</a>
 </nav>
@@ -605,8 +622,8 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <div class="t-inner">
       <div class="t-q">"</div>
       <div>
-        <p class="t-text">Mad scientists. Inspirational.</p>
-        <div class="t-attr">Hunter Woodhall — Olympic Gold Medalist, Paris 2024</div>
+        <p class="t-text">Versatile. You can use it at any distance, with any athlete. It's reliable — and easy to use.</p>
+        <div class="t-attr">Nathan Farhit — Certified Speed &amp; Performance Coach &nbsp;&middot;&nbsp; <a href="#" onclick="showPage('testimonials');return false" style="color:var(--gold);text-decoration:underline">More testimonials &rarr;</a></div>
       </div>
     </div>
   </div>
@@ -647,13 +664,65 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
         <div class="team-avatar">LL</div>
         <div class="team-name">Louis Liu</div>
         <div class="team-role">Co-Founder</div>
-        <p class="team-bio">Student athlete from Oak Park, CA. Self-taught engineer — learned microcontrollers, sensors, CAD, and PCB design through online resources and hands-on experimentation. Leads hardware development, overseeing the design, prototyping, integration, and testing of the timing gate system to ensure reliable performance.<br>Contact: (805) 367-6757<br>louis@equalsplit.org</p>
+        <p class="team-bio">Student athlete from Oak Park, CA. Self-taught engineer — learned coding, microcontrollers, sensors, mechanical CAD, and PCB circuit design through online resources and hands-on experimentation. Responsible for end-to-end hardware and software development — from initial concept and architecture through design, implementation, integration, and testing of the timing gate system and mobile app — ensuring reliable, high-precision performance and a seamless user experience.<br>Contact: (805) 367-6757<br>louis@equalsplit.org</p>
       </div>
       <div class="team-card">
         <div class="team-avatar">JS</div>
         <div class="team-name">Jayden Stanislaus</div>
         <div class="team-role">Co-Founder</div>
         <p class="team-bio">Student athlete from Oak Park, CA. Self-taught engineer — learned CAD, coding, and digital media skills through online resources. Leads product testing and community engagement, conducting real-world validation of the timing gate system while managing business development, social media, and partnerships with athletes, sponsors, and supporters.<br>Contact: (805) 300-0542<br>jayden@equalsplit.org</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ TESTIMONIALS ════════ -->
+<div id="page-testimonials" class="page">
+  <section class="tst-hero">
+    <p class="ah-tag">From the Track</p>
+    <h1 class="fu">WHAT COACHES &amp;<br>ATHLETES <span class="gold">SAY.</span></h1>
+    <p class="fu d1">Real feedback from real training sessions — side-by-side with commercial systems, with real athletes on the clock.</p>
+  </section>
+
+  <div class="tst-featured">
+    <div class="t-inner">
+      <div class="t-q">"</div>
+      <div>
+        <p class="t-text">Versatile. You can use it at any distance, with any athlete. It's reliable — and easy to use.</p>
+        <div class="t-attr">Nathan Farhit — Certified Speed &amp; Performance Coach, NF Speed &amp; Performance Training</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="tst-grid-sec">
+    <p class="sec-tag">Session Feedback</p>
+    <h2 class="sec-title">TESTED SIDE-BY-SIDE WITH COMMERCIAL GATES</h2>
+    <div class="tst-grid">
+      <div class="tst-card">
+        <p>"We had two setups running at the same time, and they were exactly accurate with gates in a much higher price range. It shows the technology is high level — it can compete with anything out there."</p>
+        <div class="t-attr">Nathan Farhit — on accuracy</div>
+      </div>
+      <div class="tst-card">
+        <p>"You saw it today — they competed with each other and kept asking what time they got, because they wanted something to beat. When you give athletes those numbers, they compete at a high level."</p>
+        <div class="t-attr">Nathan Farhit — on athlete buy-in</div>
+      </div>
+      <div class="tst-card">
+        <p>"In track, you only get one opportunity with laser timing — at a meet. Some kids only get six meets a year. A product like this keeps them believing they can hit those times all year long."</p>
+        <div class="t-attr">Nathan Farhit — on access</div>
+      </div>
+      <div class="tst-card">
+        <p>"100%, I'd recommend it — and not just to sprint coaches. Soccer, football, whatever it is. Something this easy to set up, where you just run your athletes through, takes training to the next level."</p>
+        <div class="t-attr">Nathan Farhit — on recommending EqualSplit</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="testimony-sec">
+    <div class="t-inner">
+      <div class="t-q">"</div>
+      <div>
+        <p class="t-text">Mad scientists. Inspirational.</p>
+        <div class="t-attr">Hunter Woodhall — Olympic Gold Medalist, Paris 2024</div>
       </div>
     </div>
   </div>
@@ -669,6 +738,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <a onclick="showPage('home')">Home</a>
     <a onclick="showPage('product')">Product</a>
     <a onclick="showPage('about')">Our Story</a>
+    <a onclick="showPage('testimonials')">Testimonials</a>
     <a href="https://square.link/u/o3FEZqMG" target="_blank" rel="noopener">Donate</a>
     <a onclick="openQuestionModal()">Questions</a>
   </div>
