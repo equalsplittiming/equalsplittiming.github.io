@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="oKEwPFap2GtLccDDO1K5YT5ziAmQmeML7I-KfI_IcK8" />
-<title>EqualSplit — Precision Sprint Timing for Every Athlete</title>
+<title>EqualSplit | Precision Sprint Timing for Every Athlete</title>
 <meta name="description" content="EqualSplit is a $79.99 LiDAR sprint timing gate system with no subscription. Built by high school athletes in Oak Park, CA. Every unit sold funds a free one for an underfunded program.">
 <link rel="icon" type="image/png" href="logo.png">
-<meta property="og:title" content="EqualSplit — Precision Sprint Timing for Every Athlete">
+<meta property="og:title" content="EqualSplit | Precision Sprint Timing for Every Athlete">
 <meta property="og:description" content="$79.99 LiDAR timing gates, no subscription. Every unit sold funds a free one for an underfunded program.">
 <meta property="og:image" content="https://equalsplit.org/images/equalsplit-product-photo-1.jpg">
 <meta property="og:url" content="https://equalsplit.org/">
@@ -34,7 +34,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-wordmark{font-family:var(--font-display);font-size:1.3rem;letter-spacing:.1em;color:var(--white);line-height:1}
 .nav-sub{font-size:.52rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:1px;opacity:.75}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(248,246,240,.45);text-decoration:none;transition:color .2s}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(248,246,240,.45);text-decoration:none;transition:color .2s;white-space:nowrap}
 .nav-links a:hover,.nav-links a.active{color:var(--gold-light)}
 .nav-cta{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:.5rem 1.25rem;border:none;cursor:pointer;text-decoration:none;transition:background .2s;display:inline-block}
 .nav-cta:hover{background:var(--gold-light)}
@@ -145,9 +145,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .prod-modes{margin-bottom:1.65rem}
 .prod-modes-label{font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:.85rem}
 .mode-cards{display:flex;flex-direction:column;gap:.7rem}
-.mode-card{padding:.9rem 1.1rem;border:1px solid var(--light-gray);background:rgba(201,162,39,.02)}
-.mode-card-title{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:.25rem}
-.mode-card-desc{font-size:.82rem;font-weight:300;color:var(--gray);line-height:1.6}
+.mode-card{border:1px solid var(--light-gray);background:rgba(201,162,39,.02)}
+.mode-card summary{list-style:none;cursor:pointer;padding:.8rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);user-select:none}
+.mode-card summary::-webkit-details-marker{display:none}
+.mode-card summary::after{content:'';width:8px;height:8px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);transition:transform .2s;flex-shrink:0;margin-top:-3px}
+.mode-card[open] summary::after{transform:rotate(-135deg);margin-top:3px}
+.mode-card-desc{font-size:.82rem;font-weight:300;color:var(--gray);line-height:1.6;padding:0 1.1rem .9rem}
+.mode-more{font-size:.76rem;font-weight:300;line-height:1.6;color:var(--gray);margin-top:.75rem}
+.mode-more strong{font-weight:500;color:var(--navy)}
 .prod-actions{display:flex;gap:1rem;align-items:center;margin-bottom:1rem}
 .btn-buy{padding:.95rem 1.75rem;background:var(--navy);color:var(--white);border:1.5px solid var(--navy);font-family:var(--font-body);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .2s;display:inline-block;text-decoration:none}
 .btn-buy:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
@@ -319,8 +324,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 }
 
 /* HOVER POLISH */
-.mode-card,.c-card,.v-card{transition:transform .25s ease,box-shadow .25s ease}
-.mode-card:hover,.c-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(15,21,66,.08)}
+.c-card,.v-card{transition:transform .25s ease,box-shadow .25s ease}
+.c-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(15,21,66,.08)}
+.mode-card:hover{border-color:var(--gold)}
 .v-card:hover{transform:translateY(-3px)}
 .g3-slot img,.story-photo img{transition:transform .5s ease}
 .g3-slot:hover img,.story-photo:hover img{transform:scale(1.03)}
@@ -370,7 +376,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 .d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}.d4{animation-delay:.46s}
 
 /* RESPONSIVE */
-@media(max-width:480px){.nav-logo>div:last-child{display:none}}
+@media(max-width:480px){.nav-logo>div:last-child{display:none}.nav-links{gap:.75rem}.nav-links a{font-size:.58rem;letter-spacing:.06em}}
 @media(max-width:820px){
   .hero,.prod-layout,.about-hero,.problem-sec{grid-template-columns:1fr}
   .hero{height:auto;min-height:calc(100vh - 62px)}
@@ -379,7 +385,8 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
   .prod-main{min-height:300px}
   .v-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr;max-width:340px}
-  .nav-links{gap:1.1rem}
+  .nav-links{gap:1rem;min-width:0;overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
   .nav-links a{font-size:.62rem}
   .nav-sub{display:none}
   .nav-wordmark{font-size:1.05rem}
@@ -428,7 +435,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       <div class="hero-stats fu d2">
         <div><div class="stat-num">$79.99</div><div class="stat-label">No Subscription</div></div>
         <div><div class="stat-num">100m+</div><div class="stat-label">Wireless Range</div></div>
-        <div><div class="stat-num">HS Built</div><div class="stat-label">Oak Park, CA</div></div>
+        <div><div class="stat-num">501(c)(3)</div><div class="stat-label">Nonprofit &middot; Oak Park CA</div></div>
       </div>
       <div class="hero-actions fu d3">
         <a href="#" class="btn-gold" onclick="showPage('product');return false">See the Device</a>
@@ -449,12 +456,12 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <div class="marquee-track">
       <span>No Subscription</span><span class="sep">◆</span>
       <span>Precision Data for Every Athlete</span><span class="sep">◆</span>
-      <span>California Nonprofit</span><span class="sep">◆</span>
+      <span>A 501(c)(3) Nonprofit</span><span class="sep">◆</span>
       <span>Built in Oak Park CA</span><span class="sep">◆</span>
       <span>High School Built</span><span class="sep">◆</span>
       <span>No Subscription</span><span class="sep">◆</span>
       <span>Precision Data for Every Athlete</span><span class="sep">◆</span>
-      <span>California Nonprofit</span><span class="sep">◆</span>
+      <span>A 501(c)(3) Nonprofit</span><span class="sep">◆</span>
       <span>Built in Oak Park CA</span><span class="sep">◆</span>
       <span>High School Built</span><span class="sep">◆</span>
     </div>
@@ -465,20 +472,20 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       <p class="sec-tag">The Problem</p>
       <h2 class="sec-title">THE DATA GAP IN ATHLETICS</h2>
       <div class="hs-badge">
-        <span>Built by high schoolers from Oak Park, CA</span>
+        <span>Built by high schoolers &middot; A 501(c)(3) nonprofit</span>
       </div>
-      <p class="sec-body">Good coaching needs real numbers. Timing gates give you split data — how fast an athlete accelerates, where their top end is, how they compare week to week. Without that, you're guessing. Hand timing is off by a few tenths at best. That's not nothing. In sprinting, that's everything.</p>
+      <p class="sec-body">Good coaching needs real numbers. Timing gates give you split data: how fast an athlete accelerates, where their top end is, how they compare week to week. Without that, you're guessing. Hand timing is off by a few tenths at best. That's not nothing. In sprinting, that's everything.</p>
       <p class="sec-body">The schools that can afford the tools get the data. Everyone else makes do. We got tired of that being the way it works.</p>
-      <p class="sec-body">Times are dropping at the high school, collegiate, and professional levels — and advancing technology, including timing gates, is a big part of why. We're working to equal the field, so that edge isn't reserved for the programs that can pay for it and talent in underserved communities can reach its full potential.</p>
+      <p class="sec-body">Times are dropping at the high school, collegiate, and professional levels, and advancing technology, including timing gates, is a big part of why. We're working to equal the field, so that edge isn't reserved for the programs that can pay for it and talent in underserved communities can reach its full potential.</p>
     </div>
     <div class="compare-stack">
       <div class="c-card bad reveal">
         <div class="c-title">Commercial Systems</div>
-        <p>$350 – $1,500+ per unit for systems with similar or worse functionality — often with monthly subscription fees on top. Accessible only to elite and well-funded programs.</p>
+        <p>$350 – $1,500+ per unit for systems with similar or worse functionality, often with monthly subscription fees on top. Accessible only to elite and well-funded programs.</p>
       </div>
       <div class="c-card good reveal dl1">
         <div class="c-title">EqualSplit</div>
-        <p>$79.99. No subscription. Two timing modes so you can measure what actually matters — acceleration splits and full speed profiles. Made for every athlete.</p>
+        <p>$79.99. No subscription. Two timing modes so you can measure what actually matters: acceleration splits and full speed profiles. Made for every athlete.</p>
       </div>
       <div class="c-card aid reveal dl2">
         <div class="c-title">Can't Afford It?</div>
@@ -516,21 +523,21 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
         <div class="p-thumb" onclick="selThumb(this,'photo3')">Photo 3</div>
         <div class="p-thumb" onclick="selThumb(this,'vid1')">
           <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Mode 1 — 10m Fly
+          Mode 1: 10m Fly
         </div>
         <div class="p-thumb" onclick="selThumb(this,'vid2')">
           <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Mode 1 — 40-Yard Dash
+          Mode 1: 40-Yard Dash
         </div>
         <div class="p-thumb" onclick="selThumb(this,'vid3')">
           <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Mode 2 — Demo
+          Mode 2: Demo
         </div>
       </div>
     </div>
 
     <div class="prod-info">
-      <p class="prod-cat">EqualSplit — Available Now</p>
+      <p class="prod-cat">EqualSplit &middot; Available Now</p>
       <h1 class="prod-name fu">TIMING<br>GATE<br>SYSTEM</h1>
       <p class="prod-sub fu d1">Precision sprint timing for every athlete</p>
 
@@ -542,21 +549,22 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 
       <div class="prod-divider"></div>
 
-      <p class="prod-desc fu d2">A portable, self-contained sprint timing system built on LiDAR sensing. Measures acceleration splits, top-end speed, and full sprint profiles with millisecond-level precision. USB-C rechargeable, 100m+ wireless range between two gates, custom 3D-printed enclosure. No subscription. Just data — with a companion mobile app on the way for saving and tracking results over time.</p>
+      <p class="prod-desc fu d2">A portable, self-contained sprint timing system built on LiDAR sensing. Measures acceleration splits, top-end speed, and full sprint profiles with millisecond-level precision. USB-C rechargeable, 100m+ wireless range between two gates, custom 3D-printed enclosure. No subscription. Just data. A companion mobile app is on the way for saving and tracking results over time.</p>
 
       <div class="prod-modes fu d2">
         <div class="prod-modes-label">Two Timing Modes, One Device</div>
         <div class="mode-cards">
-          <div class="mode-card">
-            <div class="mode-card-title">Mode 1 — Gate 1 to Gate 2 Split</div>
-            <p class="mode-card-desc">The clock starts when Gate 1 is passed and stops when Gate 2 is passed. A clean split time — perfect for flys (10m, 20m, 30m), 40-yard dashes, and more.</p>
-          </div>
-          <div class="mode-card">
-            <div class="mode-card-title">Mode 2 — Speed Profile</div>
-            <p class="mode-card-desc">A multi-split breakdown of your full sprint. The timer starts on the release of Button 2 and records button release to Gate 1, Gate 1 to Gate 2, and button release to Gate 2 — a breakdown of acceleration and top-end in one run.</p>
-          </div>
+          <details class="mode-card">
+            <summary>Mode 1: Gate 1 to Gate 2 Split</summary>
+            <p class="mode-card-desc">The clock starts when Gate 1 is passed and stops when Gate 2 is passed. A clean split time, perfect for flys (10m, 20m, 30m), 40-yard dashes, and more.</p>
+          </details>
+          <details class="mode-card">
+            <summary>Mode 2: Speed Profile</summary>
+            <p class="mode-card-desc">A multi-split breakdown of your full sprint. The timer starts on the release of Button 2 and records button release to Gate 1, Gate 1 to Gate 2, and button release to Gate 2. Acceleration and top-end in one run.</p>
+          </details>
         </div>
-        <div style="margin-top:.7rem;display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.25);padding:.4rem .85rem;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Companion App — Coming Soon</div>
+        <p class="mode-more"><strong>More modes are on the way.</strong> Timing logic lives in the companion app, not the hardware, so we can add new modes and features in software. Need something specific for your training? Ask and we can build it.</p>
+        <div style="margin-top:.7rem;display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.25);padding:.4rem .85rem;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Companion App Coming Soon</div>
       </div>
 
       <div class="warranty-strip fu d3">
@@ -570,16 +578,16 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       </div>
 
       <div class="prod-actions fu d3">
-        <a href="#" id="main-cta-btn" class="btn-buy" style="display:inline-block;text-decoration:none">Buy Now — $79.99</a>
+        <a href="#" id="main-cta-btn" class="btn-buy" style="display:inline-block;text-decoration:none">Buy Now &middot; $79.99</a>
         <a href="https://square.link/u/o3FEZqMG" target="_blank" rel="noopener" class="btn-ghost-dark" style="display:inline-block;text-decoration:none">Donate</a>
       </div>
 
       <div class="financial-note fu d3">
-        Represent an underfunded school or program? <a href="#" onclick="openFinancialModal();return false">Apply for a free unit</a> — we review every application and do our best to help.
+        Represent an underfunded school or program? <a href="#" onclick="openFinancialModal();return false">Apply for a free unit</a>. We review every application and do our best to help.
       </div>
 
       <div class="financial-note fu d3">
-        Ordering from outside the US? <a href="#" onclick="openInternationalModal();return false">Request an international shipping quote</a> — we'll email you a total, usually within a day or two.
+        Ordering from outside the US? <a href="#" onclick="openInternationalModal();return false">Request an international shipping quote</a> and we'll email you a total, usually within a day or two.
       </div>
     </div>
   </div>
@@ -589,7 +597,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 <div id="page-about" class="page">
   <section class="about-hero">
     <div>
-      <p class="ah-tag">Oak Park, California — Est. 2026</p>
+      <p class="ah-tag">Oak Park, California &middot; Est. 2026</p>
       <h1 class="ah-title fu">THE<br>SPLIT<br>THAT<br><span class="gold">LEVELS</span><br>THE<br>FIELD.</h1>
     </div>
     <div class="ah-right fu d2">
@@ -607,7 +615,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     </div>
     <div class="story-items">
 
-      <!-- Item 1: The Idea — single photo -->
+      <!-- Item 1: The Idea (single photo) -->
       <div class="story-item reveal">
         <div class="story-photo">
           <img src="images/equalsplit-early-sketches.jpg" alt="Early sketches and ideas for EqualSplit">
@@ -615,21 +623,21 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
         <div class="story-text">
           <div class="story-period">Early 2026</div>
           <div class="story-event">The Idea</div>
-          <p class="story-desc">It started with a frustration. We were student athletes who knew what good timing data could do — and watched our school make do without it. So we started sketching. What would it actually take to build our own?</p>
+          <p class="story-desc">It started with a frustration. We were student athletes who knew what good timing data could do, and watched our school make do without it. So we started sketching. What would it actually take to build our own?</p>
         </div>
       </div>
 
-      <!-- Item 2: Proof of Concept — overlapping photos -->
+      <!-- Item 2: Proof of Concept (overlapping photos) -->
       <div class="story-item reverse reveal">
         <div class="story-photo"><img src="images/equalsplit-first-prototype.jpg" alt="First prototype build"></div>
         <div class="story-text">
           <div class="story-period">First Build</div>
           <div class="story-event">Proof of Concept</div>
-          <p class="story-desc">We taught ourselves everything — microcontrollers, LiDAR sensors, wireless communication. The first prototype was rough, but it worked. A real split time on a real track. That was enough to know we were onto something.</p>
+          <p class="story-desc">We taught ourselves everything: microcontrollers, LiDAR sensors, wireless communication. The first prototype was rough, but it worked. A real split time on a real track. That was enough to know we were onto something.</p>
         </div>
       </div>
 
-      <!-- Item 3: Now — placeholder -->
+      <!-- Item 3: Now -->
       <div class="story-item reveal">
         <div class="story-photo">
           <img src="images/equalsplit-product-photo-1.jpg" alt="Finished EqualSplit timing gates on the track at sunset">
@@ -680,7 +688,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       <div class="v-card reveal">
         <div class="v-num">01</div>
         <div class="v-title">Access Over Privilege</div>
-        <p class="v-body">Talent has no zip code. The tools to develop it shouldn't either. Every athlete deserves objective data — not just the ones at well-funded programs. That's the whole reason we built this.</p>
+        <p class="v-body">Talent has no zip code. The tools to develop it shouldn't either. Every athlete deserves objective data, not just the ones at well-funded programs. That's the whole reason we built this.</p>
       </div>
       <div class="v-card reveal dl1">
         <div class="v-num">02</div>
@@ -707,13 +715,13 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
         <div class="team-avatar">LL</div>
         <div class="team-name">Louis Liu</div>
         <div class="team-role">Co-Founder</div>
-        <p class="team-bio">Student athlete from Oak Park, CA. Self-taught engineer — learned coding, microcontrollers, sensors, mechanical CAD, and PCB circuit design through online resources and hands-on experimentation. Responsible for end-to-end hardware and software development — from initial concept and architecture through design, implementation, integration, and testing of the timing gate system and mobile app — ensuring reliable, high-precision performance and a seamless user experience.<br>louis@equalsplit.org</p>
+        <p class="team-bio">Student athlete from Oak Park, CA. Self-taught engineer who learned coding, microcontrollers, sensors, mechanical CAD, and PCB design through online resources and a lot of trial and error. Handles hardware and software end to end, from first sketches through firmware, circuit boards, enclosures, and the mobile app.<br>louis@equalsplit.org</p>
       </div>
       <div class="team-card reveal dl1">
         <div class="team-avatar">JS</div>
         <div class="team-name">Jayden Stanislaus</div>
         <div class="team-role">Co-Founder</div>
-        <p class="team-bio">Student athlete from Oak Park, CA. Self-taught engineer — learned CAD, coding, and digital media skills through online resources. Leads product testing and community engagement, conducting real-world validation of the timing gate system while managing business development, social media, and partnerships with athletes, sponsors, and supporters.<br>jayden@equalsplit.org</p>
+        <p class="team-bio">Student athlete from Oak Park, CA. Self-taught in CAD, coding, and digital media. Leads on-track testing and everything business: outreach, social media, and partnerships with athletes, coaches, and supporters.<br>jayden@equalsplit.org</p>
       </div>
     </div>
   </div>
@@ -724,7 +732,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
   <section class="tst-hero">
     <p class="ah-tag">From the Track</p>
     <h1 class="fu">WHAT COACHES &amp;<br>ATHLETES <span class="gold">SAY.</span></h1>
-    <p class="fu d1">Real feedback from real training sessions — side-by-side with commercial systems, with real athletes on the clock.</p>
+    <p class="fu d1">Real feedback from real training sessions, side by side with commercial systems, with real athletes on the clock.</p>
   </section>
 
   <section class="spotlight-sec">
@@ -733,7 +741,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
         <div class="spot-avatar">NF</div>
         <div class="spot-name">Nathan Farhit</div>
         <div class="spot-cred">Certified Speed &amp; Performance Coach<br>NF Speed &amp; Performance Training</div>
-        <p class="spot-context">Feedback recorded during a live training session — EqualSplit running side-by-side with commercial timing gates, with real athletes on the clock.</p>
+        <p class="spot-context">Feedback recorded during a live training session: EqualSplit running side by side with commercial timing gates, with real athletes on the clock.</p>
       </aside>
       <div class="spot-quotes">
         <blockquote class="spot-q lead reveal">
@@ -778,7 +786,6 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <a onclick="showPage('about')">Our Story</a>
     <a onclick="showPage('testimonials')">Testimonials</a>
     <a href="https://square.link/u/o3FEZqMG" target="_blank" rel="noopener">Donate</a>
-    <a onclick="openInternationalModal()">International</a>
     <a onclick="openQuestionModal()">Questions</a>
   </div>
   <div class="f-right">
@@ -825,7 +832,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <button class="modal-close" onclick="closeModal('modal-financial')">×</button>
     <p class="modal-tag">Financial Aid</p>
     <h2>Apply for a Free Unit</h2>
-    <p>If you're a coach, athlete, or program that can't afford commercial timing systems — tell us about your situation. This is separate from purchasing. We review every application and do our best to help.</p>
+    <p>If you're a coach, athlete, or program that can't afford commercial timing systems, tell us about your situation. This is separate from purchasing. We review every application and do our best to help.</p>
     <div data-fs-success id="financial-success" class="form-success" style="display:none">
       <div class="fs-icon">✓</div>
       <p>Got it. <strong>We'll be in touch soon.</strong><br>You can also reach us directly at <a href="mailto:contact@equalsplit.org" style="color:var(--gold)">contact@equalsplit.org</a></p>
@@ -863,7 +870,7 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <p>Questions about how EqualSplit works, shipping, bulk orders for a team, or anything else? Send it over and we'll get back to you.</p>
     <div data-fs-success id="question-success" class="form-success" style="display:none">
       <div class="fs-icon">✓</div>
-      <p>Thanks — <strong>we'll get back to you soon.</strong><br>You can also reach us directly at <a href="mailto:contact@equalsplit.org" style="color:var(--gold)">contact@equalsplit.org</a></p>
+      <p>Thanks! <strong>We'll get back to you soon.</strong><br>You can also reach us directly at <a href="mailto:contact@equalsplit.org" style="color:var(--gold)">contact@equalsplit.org</a></p>
     </div>
     <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
     <form id="form-question" action="https://formspree.io/f/mvznvqge" method="POST">
@@ -883,10 +890,10 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
     <button class="modal-close" onclick="closeModal('modal-international')">×</button>
     <p class="modal-tag">International Orders</p>
     <h2>Order From Outside the US</h2>
-    <p>International shipping is quoted per order. Send us your details and we'll email you a total — usually within a day or two. Import duties and taxes are collected by the carrier on delivery and are the buyer's responsibility.</p>
+    <p>International shipping is quoted per order. Send us your details and we'll email you a total, usually within a day or two. Import duties and taxes are collected by the carrier on delivery and are the buyer's responsibility.</p>
     <div data-fs-success id="international-success" class="form-success" style="display:none">
       <div class="fs-icon">✓</div>
-      <p>Got it — <strong>we'll email you a shipping quote soon.</strong><br>You can also reach us at <a href="mailto:contact@equalsplit.org" style="color:var(--gold)">contact@equalsplit.org</a></p>
+      <p>Got it! <strong>We'll email you a shipping quote soon.</strong><br>You can also reach us at <a href="mailto:contact@equalsplit.org" style="color:var(--gold)">contact@equalsplit.org</a></p>
     </div>
     <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
     <form id="form-international" action="https://formspree.io/f/xykqoybn" method="POST">
@@ -919,9 +926,9 @@ const galleryViews = {
   photo1:{label:'Photo 1',video:false},
   photo2:{label:'Photo 2',video:false},
   photo3:{label:'Photo 3',video:false},
-  vid1:  {label:'Mode 1 — 10m Fly',video:true},
-  vid2:  {label:'Mode 1 — 40-Yard Dash',video:true},
-  vid3:  {label:'Mode 2 — Demo',video:true}
+  vid1:  {label:'Mode 1: 10m Fly',video:true},
+  vid2:  {label:'Mode 1: 40-Yard Dash',video:true},
+  vid3:  {label:'Mode 2: Demo',video:true}
 };
 function selThumb(btn,view){
   document.querySelectorAll('.p-thumb').forEach(x=>x.classList.remove('active'));
@@ -944,7 +951,7 @@ function selThumb(btn,view){
   if(ph){
     ph.classList.remove('hidden');
     const info=galleryViews[view]||{label:'',video:false};
-    document.getElementById('gallery-ph-label').textContent=info.label+(info.video?' — Video':'');
+    document.getElementById('gallery-ph-label').textContent=info.label+(info.video?' \u00B7 Video':'');
     const icon=document.getElementById('gallery-ph-icon');
     if(info.video){
       icon.innerHTML='<polygon points="5 3 19 12 5 21 5 3"/>';
@@ -975,7 +982,7 @@ const navCta = document.getElementById('nav-cta-btn');
 if(STORE_MODE === "buy"){
   if(navCta) navCta.textContent = "Buy";
   if(ctaBtn){
-    ctaBtn.textContent = "Buy Now — $79.99";
+    ctaBtn.textContent = "Buy Now &middot; $79.99";
     ctaBtn.onclick = function(e){ e.preventDefault(); window.open(SQUARE_LINK,'_blank'); };
   }
 } else {
