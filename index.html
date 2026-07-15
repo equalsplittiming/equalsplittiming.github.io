@@ -151,6 +151,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .mode-card summary::after{content:'';width:8px;height:8px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);transition:transform .2s;flex-shrink:0;margin-top:-3px}
 .mode-card[open] summary::after{transform:rotate(-135deg);margin-top:3px}
 .mode-card-desc{font-size:.82rem;font-weight:300;color:var(--gray);line-height:1.6;padding:0 1.1rem .9rem}
+.faq-sec{max-width:760px;margin:0 auto;padding:4.5rem 2rem 5.5rem}
+.faq-sec .sec-title{text-align:center}
+.faq-sub{text-align:center;font-size:.85rem;font-weight:300;color:var(--gray);margin-bottom:2.2rem}
+.faq-cards{display:flex;flex-direction:column;gap:.7rem}
 .mode-more{font-size:.76rem;font-weight:300;line-height:1.6;color:var(--gray);margin-top:.75rem}
 .mode-more strong{font-weight:500;color:var(--navy)}
 .prod-actions{display:flex;gap:1rem;align-items:center;margin-bottom:1rem}
@@ -404,6 +408,37 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
   .story-text{padding:2rem}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "EqualSplit Timing Gate System",
+  "image": "https://equalsplit.org/images/equalsplit-product-photo-1.jpg",
+  "description": "A portable, self-contained sprint timing system built on LiDAR sensing. Measures acceleration splits, top-end speed, and full sprint profiles with millisecond-level precision. USB-C rechargeable, 100m+ wireless range between two gates. No subscription.",
+  "brand": {"@type": "Brand", "name": "EqualSplit"},
+  "offers": {
+    "@type": "Offer",
+    "url": "https://equalsplit.org/",
+    "price": "79.99",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "seller": {"@type": "Organization", "name": "EqualSplit"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Does EqualSplit perform as well as more expensive timing systems?","acceptedAnswer":{"@type":"Answer","text":"For sprint timing, yes. Accuracy is verified to roughly ±5 milliseconds with controlled physics drop tests — the same ballpark as systems costing $500 or more, and far beyond hand timing, which is typically off by 200+ milliseconds."}},
+    {"@type":"Question","name":"How is EqualSplit only $79.99?","acceptedAnswer":{"@type":"Answer","text":"EqualSplit is a student-run nonprofit. The circuit boards, firmware, and enclosures are designed and made in-house, so there's no markup chain. The small margin on each sale funds free units for programs that can't afford one."}},
+    {"@type":"Question","name":"How does the free unit program work?","acceptedAnswer":{"@type":"Answer","text":"Every unit sold funds a donated one. Coaches at underfunded schools or programs can apply through the form on the product page. Every application is reviewed."}},
+    {"@type":"Question","name":"Who makes EqualSplit?","acceptedAnswer":{"@type":"Answer","text":"High school students in Oak Park, California. EqualSplit is a registered 501(c)(3) nonprofit that builds, tests, and ships every unit itself."}},
+    {"@type":"Question","name":"What if my EqualSplit unit breaks?","acceptedAnswer":{"@type":"Answer","text":"Every unit comes with a 90-day warranty. If it fails under normal use, it is repaired or replaced at no charge."}}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -591,6 +626,33 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
       </div>
     </div>
   </div>
+
+  <section class="faq-sec">
+    <h2 class="sec-title">COMMON QUESTIONS</h2>
+    <p class="faq-sub">Something we didn't cover? <a href="#" onclick="openQuestionModal();return false" style="color:var(--gold);text-decoration:underline">Ask us anything.</a></p>
+    <div class="faq-cards">
+      <details class="mode-card">
+        <summary>Does it perform as well as more expensive systems?</summary>
+        <p class="mode-card-desc">For sprint timing, yes. We've verified accuracy to roughly &plusmn;5 milliseconds with controlled physics drop tests &mdash; the same ballpark as systems costing $500 or more, and far beyond hand timing, which is typically off by 200+ milliseconds. What you're not paying for is a brand name and a subscription.</p>
+      </details>
+      <details class="mode-card">
+        <summary>How is it only $79.99?</summary>
+        <p class="mode-card-desc">We're a student-run nonprofit. We designed the circuit boards, wrote the firmware, and print the enclosures ourselves, so there's no markup chain. The small margin on each sale funds free units for programs that can't afford one.</p>
+      </details>
+      <details class="mode-card">
+        <summary>How does the free unit program work?</summary>
+        <p class="mode-card-desc">Every unit sold funds a donated one. If you coach at an underfunded school or program, apply through the form on this page. We read every application.</p>
+      </details>
+      <details class="mode-card">
+        <summary>Who makes this?</summary>
+        <p class="mode-card-desc">High school students in Oak Park, California. EqualSplit is a registered 501(c)(3) nonprofit, and we build, test, and ship every unit ourselves.</p>
+      </details>
+      <details class="mode-card">
+        <summary>What if it breaks?</summary>
+        <p class="mode-card-desc">Every unit comes with a 90-day warranty. If it fails under normal use, we repair or replace it at no charge.</p>
+      </details>
+    </div>
+  </section>
 </div>
 
 <!-- ════════ ABOUT ════════ -->
@@ -913,14 +975,27 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 
 <script>
 function openQuestionModal(){document.getElementById('modal-question').classList.add('open')}
-function showPage(n){
+function showPage(n,skipHash){
+  const target=document.getElementById('page-'+n);
+  if(!target)return;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('page-'+n).classList.add('active');
+  target.classList.add('active');
   const el=document.getElementById('nav-'+n);
   if(el)el.classList.add('active');
+  if(!skipHash){
+    if(n==='home'){history.pushState('',document.title,location.pathname+location.search);}
+    else{location.hash=n;}
+  }
   window.scrollTo({top:0,behavior:'smooth'});
 }
+// Deep links: equalsplit.org/#product, #about, #testimonials
+function routeFromHash(){
+  const h=location.hash.replace('#','');
+  showPage(h&&document.getElementById('page-'+h)?h:'home',true);
+}
+window.addEventListener('hashchange',routeFromHash);
+if(location.hash)routeFromHash();
 // ── GALLERY ─────────────────────────────────────────────
 const galleryViews = {
   photo1:{label:'Photo 1',video:false},
@@ -982,7 +1057,7 @@ const navCta = document.getElementById('nav-cta-btn');
 if(STORE_MODE === "buy"){
   if(navCta) navCta.textContent = "Buy";
   if(ctaBtn){
-    ctaBtn.textContent = "Buy Now &middot; $79.99";
+    ctaBtn.textContent = "Buy Now \u00B7 $79.99";
     ctaBtn.onclick = function(e){ e.preventDefault(); window.open(SQUARE_LINK,'_blank'); };
   }
 } else {
