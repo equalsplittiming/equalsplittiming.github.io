@@ -111,15 +111,37 @@ function attachSuccess(formId, successId) {
   if (!form) return;
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    const errDiv = form.parentElement.querySelector('[data-fs-error]');
+    if (errDiv) errDiv.style.display = 'none';
     const data = new FormData(form);
-    const res = await fetch(form.action, {
-      method: 'POST', body: data, headers: { Accept: 'application/json' }
-    });
-    if (res.ok) {
-      form.style.display = 'none';
-      document.getElementById(successId).style.display = 'block';
-    } else {
-      alert('Something went wrong. Please email us at contact@equalsplit.org');
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST', body: data, headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById(successId).style.display = 'block';
+        return;
+      }
+      let msg = 'Something went wrong.';
+      try {
+        const j = await res.json();
+        if (j.errors && j.errors.length) msg = j.errors.map(x => x.message).join(' ');
+        else if (j.error) msg = j.error;
+      } catch (_) {}
+      if (errDiv) {
+        errDiv.textContent = msg + ' You can also email us at contact@equalsplit.org';
+        errDiv.style.display = 'block';
+      } else {
+        alert(msg + ' Please email us at contact@equalsplit.org');
+      }
+    } catch (networkErr) {
+      if (errDiv) {
+        errDiv.textContent = 'Network error — please check your connection or email us at contact@equalsplit.org';
+        errDiv.style.display = 'block';
+      } else {
+        alert('Network error. Please email us at contact@equalsplit.org');
+      }
     }
   });
 }
