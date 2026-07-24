@@ -41,7 +41,7 @@
   "mainEntity": [
     {"@type":"Question","name":"Does EqualSplit perform as well as more expensive timing systems?","acceptedAnswer":{"@type":"Answer","text":"For sprint timing, yes. Accuracy is verified to roughly ±5 milliseconds with controlled physics drop tests — the same ballpark as systems costing $500 or more, and far beyond hand timing, which is typically off by 200+ milliseconds."}},
     {"@type":"Question","name":"How is EqualSplit only $79.99?","acceptedAnswer":{"@type":"Answer","text":"EqualSplit is a student-run nonprofit. The circuit boards, firmware, and enclosures are designed and made in-house, so there's no markup chain. The small margin on each sale funds free units for programs that can't afford one."}},
-    {"@type":"Question","name":"How does the free unit program work?","acceptedAnswer":{"@type":"Answer","text":"Every unit sold funds a donated one. Coaches at underfunded schools or programs can apply through the form on the product page. Every application is reviewed."}},
+    {"@type":"Question","name":"How does the free unit program work?","acceptedAnswer":{"@type":"Answer","text":"Every unit sold funds a donated one. Coaches at underfunded schools or programs can apply at equalsplit.org/apply. Every application is reviewed."}},
     {"@type":"Question","name":"Who makes EqualSplit?","acceptedAnswer":{"@type":"Answer","text":"High school students in Oak Park, California. EqualSplit is a registered 501(c)(3) nonprofit that builds, tests, and ships every unit itself."}},
     {"@type":"Question","name":"What if my EqualSplit unit breaks?","acceptedAnswer":{"@type":"Answer","text":"Every unit comes with a 90-day warranty. If it fails under normal use, it is repaired or replaced at no charge."}}
   ]
@@ -116,7 +116,7 @@
       <div class="prod-price fu d1"><strong>$79.99</strong></div>
       <p class="prod-price-note fu d1">
         Every unit sold funds a free one for a program that can't afford it.
-        <br>Need support? <a href="#" onclick="openFinancialModal();return false">Reach out here.</a>
+        <br>Need support? <a href="/apply/">Apply for a free unit.</a>
       </p>
 
       <div class="prod-divider"></div>
@@ -154,8 +154,12 @@
         <a href="https://square.link/u/o3FEZqMG" target="_blank" rel="noopener" class="btn-ghost-dark" style="display:inline-block;text-decoration:none">Donate</a>
       </div>
 
-      <div class="financial-note fu d3">
-        Represent an underfunded school or program? <a href="#" onclick="openFinancialModal();return false">Apply for a free unit</a>. We review every application and do our best to help.
+      <div class="aid-cta fu d3">
+        <div class="aid-cta-text">
+          <div class="aid-cta-head">Can't afford a unit?</div>
+          <p>Every unit sold funds a donated one. If cost is the barrier for your school or program, apply &mdash; we review every application.</p>
+        </div>
+        <a href="/apply/" class="aid-cta-btn">Apply for a Free Unit &rarr;</a>
       </div>
 
       <div class="financial-note fu d3">
@@ -178,7 +182,7 @@
       </details>
       <details class="mode-card">
         <summary>How does the free unit program work?</summary>
-        <p class="mode-card-desc">Every unit sold funds a donated one. If you coach at an underfunded school or program, apply through the form on this page. We read every application.</p>
+        <p class="mode-card-desc">Every unit sold funds a donated one. If you coach at an underfunded school or program, <a href="/apply/" style="color:var(--gold);font-weight:500;text-decoration:underline">apply for a free unit</a>. We read every application.</p>
       </details>
       <details class="mode-card">
         <summary>Who makes this?</summary>
@@ -203,6 +207,7 @@
     <a href="/about/">Our Story</a>
     <a href="/testimonials/">Testimonials</a>
     <a href="/returns/">Returns</a>
+    <a href="/apply/">Apply for a Free Unit</a>
     <a href="https://square.link/u/o3FEZqMG" target="_blank" rel="noopener">Donate</a>
     <a href="#" onclick="openQuestionModal();return false" style="cursor:pointer">Questions</a>
   </div>
@@ -240,42 +245,6 @@
       <div class="form-row"><label>Email</label><input type="email" name="email" data-fs-field placeholder="you@example.com" required></div>
       <div class="form-row"><label>Anything else? (optional)</label><textarea name="note" placeholder="School, team, questions..."></textarea></div>
       <button class="form-submit" type="submit" data-fs-submit-btn>Reserve My Spot</button>
-    </form>
-  </div>
-</div>
-
-
-<div class="modal-overlay" id="modal-financial">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-financial')">×</button>
-    <p class="modal-tag">Financial Aid</p>
-    <h2>Apply for a Free Unit</h2>
-    <p>If you're a coach, athlete, or program that can't afford commercial timing systems, tell us about your situation. This is separate from purchasing. We review every application and do our best to help.</p>
-    <div data-fs-success id="financial-success" class="form-success" style="display:none">
-      <div class="fs-icon">✓</div>
-      <p>Got it. <strong>We'll be in touch soon.</strong><br>You can also reach us directly at <a href="mailto:contact@equalsplit.org" style="color:var(--gold)">contact@equalsplit.org</a></p>
-    </div>
-    <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
-    <form id="form-financial" action="https://formspree.io/f/mjgdokag" method="POST">
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-      <div class="form-row"><label>Your Name</label><input type="text" name="name" data-fs-field placeholder="First and last name" required></div>
-      <div class="form-row"><label>Email</label><input type="email" name="email" data-fs-field placeholder="you@example.com" required></div>
-      <div class="form-row"><label>Type of Program</label>
-        <select name="program_type" required>
-          <option value="" disabled selected>Select one</option>
-          <option>High School Team</option>
-          <option>Club Team</option>
-          <option>Community / Youth Program</option>
-          <option>Individual Athlete</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-row"><label>School or Program Name</label><input type="text" name="school" placeholder="e.g. Lincoln High Track & Field" required></div>
-      <div class="form-row"><label>City & State</label><input type="text" name="location" placeholder="e.g. Fresno, CA" required></div>
-      <div class="form-row"><label>How many athletes would benefit?</label><input type="text" name="athletes" placeholder="e.g. 25"></div>
-      <div class="form-row"><label>How do you time sprints now?</label><input type="text" name="current_timing" placeholder="e.g. hand timing with stopwatch"></div>
-      <div class="form-row"><label>Tell us about your situation</label><textarea name="situation" data-fs-field placeholder="Why does your program need support?" required></textarea></div>
-      <button class="form-submit" type="submit" data-fs-submit-btn>Submit Application</button>
     </form>
   </div>
 </div>

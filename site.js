@@ -9,7 +9,7 @@ const SQUARE_LINK = "https://square.link/u/JSqmHsi5";
 
 // ── MODALS ──────────────────────────────────────────────
 function openReserveModal(){document.getElementById('modal-reserve').classList.add('open')}
-function openFinancialModal(){document.getElementById('modal-financial').classList.add('open')}
+function openFinancialModal(){location.href='/apply/'}
 function openQuestionModal(){document.getElementById('modal-question').classList.add('open')}
 function openInternationalModal(){document.getElementById('modal-international').classList.add('open')}
 function closeModal(id){document.getElementById(id).classList.remove('open')}
@@ -38,7 +38,7 @@ if(STORE_MODE === "buy"){
 // /product/#apply opens the free-unit form, /product/#international the shipping quote form
 (function(){
   const h = location.hash;
-  if(h === '#apply' && document.getElementById('modal-financial')) openFinancialModal();
+  if(h === '#apply'){ location.replace('/apply/'); return; }
   if(h === '#international' && document.getElementById('modal-international')) openInternationalModal();
   if(h === '#reserve' && document.getElementById('modal-reserve')) openReserveModal();
 })();
