@@ -19,7 +19,7 @@ document.querySelectorAll('.modal-overlay').forEach(o=>{
 
 // ── CTA WIRING (product page + nav) ─────────────────────
 const ctaBtn = document.getElementById('main-cta-btn');
-const navCta = document.getElementById('nav-cta-btn');
+const navCta = document.getElementById('nav-buy-btn');
 if(STORE_MODE === "buy"){
   if(navCta) navCta.textContent = "Buy";
   if(ctaBtn){

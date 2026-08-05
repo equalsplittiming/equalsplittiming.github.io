@@ -19,6 +19,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a:hover,.nav-links a.active{color:var(--gold-light)}
 .nav-cta{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:.5rem 1.25rem;border:none;cursor:pointer;text-decoration:none;transition:background .2s;display:inline-block}
 .nav-cta:hover{background:var(--gold-light)}
+.nav-ctas{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.nav-cta-alt{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.nav-cta-alt:hover{background:var(--gold);color:var(--navy)}
 
 /* PAGES */
 .page{display:none;padding-top:62px}
@@ -386,7 +389,8 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
   .nav-links a{font-size:.62rem}
   .nav-sub{display:none}
   .nav-wordmark{font-size:1.05rem}
-  .nav-cta{padding:.45rem .85rem;font-size:.62rem}
+  .nav-cta{padding:.45rem .7rem;font-size:.6rem;letter-spacing:.08em}
+  .nav-ctas{gap:.35rem}
   nav{padding:.7rem 3vw;gap:.5rem}
   footer{grid-template-columns:1fr;text-align:center}
   .f-social{justify-content:center}
