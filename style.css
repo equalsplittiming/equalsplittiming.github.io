@@ -430,8 +430,6 @@ footer{background:var(--navy);color:var(--white);padding:2.75rem 6vw;display:gri
 
 /* FOOTER TEXT WRAPPING */
 .nb{white-space:nowrap}
-.f-right{min-width:0;max-width:100%}
-.f-contact,.f-copy{overflow-wrap:break-word}
 footer{overflow-x:hidden}
 .f-contact{line-height:1.65}
 @media(max-width:1080px){
