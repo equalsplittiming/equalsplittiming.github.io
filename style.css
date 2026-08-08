@@ -443,3 +443,5 @@ footer{overflow-x:hidden}
   .f-contact{font-size:.72rem}
   .f-copy{font-size:.64rem;letter-spacing:.02em}
 }
+
+.f-proceeds{display:inline-block;max-width:40rem;margin-bottom:.5rem;color:rgba(248,246,240,.62)}
