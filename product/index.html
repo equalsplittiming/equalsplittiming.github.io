@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How the Timing Gates Work | EqualSplit</title>
-<meta name="description" content="How EqualSplit's LiDAR sprint timing gates work: what a timing gate measures, why hand timing is not enough, how we verified accuracy to roughly 5 milliseconds, and how programs can receive one at no cost.">
+<meta name="description" content="How EqualSplit's LiDAR sprint timing gates work: two timing modes, verified accuracy, and how programs can receive a set at no cost.">
 <link rel="icon" type="image/png" href="/logo.png">
-<meta property="og:title" content="The Timing Gates | How They Work | EqualSplit">
-<meta property="og:description" content="How EqualSplit's LiDAR sprint timing gates work, and how programs can receive one at no cost.">
+<meta property="og:title" content="How the Timing Gates Work | EqualSplit">
+<meta property="og:description" content="Two timing modes, verified accuracy, and how programs can receive a set at no cost.">
 <meta property="og:image" content="https://equalsplit.org/images/equalsplit-product-photo-1.jpg">
 <meta property="og:url" content="https://equalsplit.org/product/">
 <meta property="og:type" content="website">
@@ -44,45 +44,128 @@
 </nav>
 
 <main id="page-product" class="page active">
-<section class="faq-sec" style="padding-top:5.5rem">
-<p class="sec-tag">How It Works</p>
-<h2 class="sec-title">THE TIMING GATES</h2>
-<p class="faq-sub">We design and build these ourselves, then donate them to programs that cannot afford timing equipment. This page explains what they measure and why it matters.</p>
+  <div class="prod-layout">
+    <div class="prod-gallery">
+      <div class="prod-main">
+        <!-- MEDIA SLOTS: when you have real media, add inside prod-main:
+             <img class="gallery-img" data-view="photo1" src="...">  (for photos)
+             <div class="gallery-video-wrap" data-view="vid1"><video src="..." controls muted playsinline></video></div>  (for videos)
+             The JS will show/hide them automatically and hide the placeholder. -->
+        <img class="gallery-img active" data-view="photo1" src="/images/equalsplit-product-photo-1.jpg" alt="Two EqualSplit timing gates set up on the track at sunset" width="1600" height="1600" decoding="async" fetchpriority="high">
+        <img class="gallery-img" data-view="photo2" src="/images/equalsplit-product-photo-2.jpg" alt="EqualSplit timing gate on its tripod beside the field" width="1600" height="1200" decoding="async" loading="lazy">
+        <img class="gallery-img" data-view="photo3" src="/images/equalsplit-product-photo-3.jpg" alt="EqualSplit timing gate standing on the track" width="1200" height="900" decoding="async" loading="lazy">
+        <div class="gallery-video-wrap" data-view="vid1"><video src="/videos/equalsplit-mode1-10m-fly.mp4" controls preload="metadata" playsinline></video></div>
+        <div class="gallery-video-wrap" data-view="vid2"><video src="/videos/equalsplit-mode1-40yd-dash.mp4" controls preload="metadata" playsinline></video></div>
+        <div class="gallery-video-wrap" data-view="vid3"><video src="/videos/equalsplit-mode2-demo.mp4" controls preload="metadata" playsinline></video></div>
+        <div class="ph-box hidden" id="gallery-ph">
+          <svg class="ph-icon" id="gallery-ph-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(201,162,39,.5)" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="13" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span class="ph-label" id="gallery-ph-label">Photo 1</span>
+        </div>
+      </div>
+      <div class="prod-thumbs">
+        <div class="p-thumb active" onclick="selThumb(this,'photo1')">Photo 1</div>
+        <div class="p-thumb" onclick="selThumb(this,'photo2')">Photo 2</div>
+        <div class="p-thumb" onclick="selThumb(this,'photo3')">Photo 3</div>
+        <div class="p-thumb" onclick="selThumb(this,'vid1')">
+          <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Mode 1: 10m Fly
+        </div>
+        <div class="p-thumb" onclick="selThumb(this,'vid2')">
+          <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Mode 1: 40-Yard Dash
+        </div>
+        <div class="p-thumb" onclick="selThumb(this,'vid3')">
+          <svg class="thumb-video-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Mode 2: Demo
+        </div>
+      </div>
+    </div>
 
-<div style="font-weight:300;line-height:1.75;color:var(--gray);font-size:.92rem;max-width:52rem">
+    <div class="prod-info">
+      <p class="prod-cat">EqualSplit &middot; Built and Donated by a 501(c)(3)</p>
+      <h1 class="prod-name fu">TIMING<br>GATE<br>SYSTEM</h1>
+      <p class="prod-sub fu d1">Precision sprint timing for every athlete</p>
 
-<h3 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.45rem;color:var(--navy);margin:2.6rem 0 .9rem">WHAT A TIMING GATE ACTUALLY DOES</h3>
-<p>A timing gate is a sensor on a stand. When an athlete passes through the beam, the gate registers the exact moment. Put two of them at a known distance apart and you have a split: the time it took to cover that distance.</p>
-<p style="margin-top:.9rem">That sounds simple, and the concept is. The difficulty is in the word "exact." A coach with a stopwatch reacts to what they see, and human reaction time runs somewhere around two tenths of a second on each end. Over a 40-yard dash, two tenths is the difference between a time that means something and a number you cannot compare to anything.</p>
-<p style="margin-top:.9rem">Our gates use LiDAR, which measures distance by timing a pulse of light. When the distance the sensor reads suddenly drops, something has passed in front of it. That reading happens hundreds of times a second, which is why the gate can tell you when an athlete crossed rather than approximately when.</p>
+      <div class="prod-price fu d1" style="font-size:1.1rem;font-weight:400">Free to programs that cannot afford equipment</div>
+      <p class="prod-price-note fu d1">
+        Roughly $60 of this is components. No one takes a salary, and the difference funds a set donated to a program that cannot afford one.
+        <br>Need support? <a href="/apply/">Apply for a free unit.</a>
+      </p>
 
-<h3 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.45rem;color:var(--navy);margin:2.6rem 0 .9rem">WHY HAND TIMING IS NOT ENOUGH</h3>
-<p>Hand timing is not useless. For a coach tracking whether an athlete is roughly improving over a season, a stopwatch tells you something real. The problem shows up when you try to make decisions with the number.</p>
-<p style="margin-top:.9rem">Hand times run fast, typically by about two tenths of a second, because the timer starts late and stops early. Track and field has a standard conversion for this reason: hand times are adjusted upward when compared against fully automatic times. The adjustment exists because everyone agrees the two are not the same measurement.</p>
-<p style="margin-top:.9rem">The deeper issue is inconsistency. The same coach timing the same athlete twice will not produce the same error both times. So when an athlete runs a tenth faster than last week, you cannot tell whether they got faster or whether you were a tenth quicker on the button. Sprint improvements at the high school level are often measured in hundredths. A measurement tool with two tenths of noise cannot see them.</p>
+      <div class="prod-divider"></div>
 
-<h3 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.45rem;color:var(--navy);margin:2.6rem 0 .9rem">WHAT WE MEASURE</h3>
-<p>The gates run two modes. The first is a straight split between two gates: the clock starts at the first gate and stops at the second. This covers flying sprints at 10, 20, or 30 meters, the 40-yard dash, and any drill where you want a clean time over a set distance.</p>
-<p style="margin-top:.9rem">The second is a speed profile. The athlete starts on a button release, and the system records three numbers: start to the first gate, first gate to second gate, and start to the second gate. That separates acceleration from top-end speed. Two athletes can run the same 40 and get there completely differently, one exploding out and fading, the other building late. A single number hides that. Three numbers show it.</p>
-<p style="margin-top:.9rem">The timing logic lives in software rather than in the hardware, so new modes can be added without new equipment.</p>
+      <p class="prod-desc fu d2">A portable, self-contained sprint timing system built on LiDAR sensing. Measures acceleration splits, top-end speed, and full sprint profiles with millisecond-level precision. USB-C rechargeable, 100m+ wireless range between two gates, custom 3D-printed enclosure. No subscription. Just data. A companion mobile app is on the way for saving and tracking results over time.</p>
 
-<h3 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.45rem;color:var(--navy);margin:2.6rem 0 .9rem">HOW WE KNOW IT IS ACCURATE</h3>
-<p>A specification on a page is a claim, not evidence. Before we were willing to hand these to a coach, we wanted a number we could defend.</p>
-<p style="margin-top:.9rem">Gravity provided one. An object dropped from a known height falls on a schedule physics predicts precisely, so we dropped objects through the gates and compared what the system recorded against what the equations said should have happened. The gates came in accurate to roughly five milliseconds.</p>
-<p style="margin-top:.9rem">For context: five milliseconds is about a quarter of the length of a single video frame at standard frame rates. Hand timing is off by more than two hundred milliseconds. That gap, between five and two hundred, is the reason this project exists.</p>
+      <div class="prod-modes fu d2">
+        <div class="prod-modes-label">Two Timing Modes, One Device</div>
+        <div class="mode-cards">
+          <details class="mode-card">
+            <summary>Mode 1: Gate 1 to Gate 2 Split</summary>
+            <p class="mode-card-desc">The clock starts when Gate 1 is passed and stops when Gate 2 is passed. A clean split time, perfect for flys (10m, 20m, 30m), 40-yard dashes, and more.</p>
+          </details>
+          <details class="mode-card">
+            <summary>Mode 2: Speed Profile</summary>
+            <p class="mode-card-desc">A multi-split breakdown of your full sprint. The timer starts on the release of Button 2 and records button release to Gate 1, Gate 1 to Gate 2, and button release to Gate 2. Acceleration and top-end in one run.</p>
+          </details>
+        </div>
+        <p class="mode-more"><strong>More modes are on the way.</strong> Timing logic lives in the companion app, not the hardware, so we can add new modes and features in software. Need something specific for your training? Ask and we can build it.</p>
+        <div style="margin-top:.7rem;display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.25);padding:.4rem .85rem;font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)">Companion App Coming Soon</div>
+      </div>
 
-<h3 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.45rem;color:var(--navy);margin:2.6rem 0 .9rem">WHY THIS EQUIPMENT IS NORMALLY EXPENSIVE</h3>
-<p>Commercial timing systems run from about $350 to well over $1,500 per unit, and many add a monthly subscription for the software that reads them. For a well funded program that is a line item. For a public high school splitting a small budget across every sport, it is out of reach entirely.</p>
-<p style="margin-top:.9rem">The cost is not in the physics. The sensor, the microcontroller, and the radio that lets two gates talk to each other are inexpensive parts. The cost is in the markup chain: the company that designs it, the company that manufactures it, the distributor, the reseller, and the brand.</p>
-<p style="margin-top:.9rem">We do the design, the firmware, the circuit boards, and the enclosures ourselves. Nobody at EqualSplit takes a salary. That is the entire explanation for the price difference, and it is why we can give sets away.</p>
+      <div class="warranty-strip fu d3">
+        <svg class="warranty-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <div class="warranty-text">
+          <strong>90-Day Limited Warranty</strong>
+          If your unit fails within 90 days of delivery under normal use, we replace or repair it at no charge. Does not cover physical damage, water damage, or misuse. Customer covers return shipping; we cover replacement shipping.
+        </div>
+      </div>
 
-<h3 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.45rem;color:var(--navy);margin:2.6rem 0 .9rem">HOW TO GET A SET</h3>
-<p>If you coach a program that cannot afford timing equipment, <a href="/apply/" style="color:var(--gold-ink);text-decoration:underline">apply for a free unit</a>. We read every application, and there is no cost to you, including shipping.</p>
-<p style="margin-top:.9rem">Programs with the budget to pay can buy a set through <a href="https://equalsplitshop.com" style="color:var(--gold-ink);text-decoration:underline">our separate store site</a>. The amount above what the parts cost goes into the donation program, so a program that pays is funding a program that cannot.</p>
-<p style="margin-top:.9rem">Either way, the <a href="/setup/" style="color:var(--gold-ink);text-decoration:underline">setup guide</a> and <a href="/safety/" style="color:var(--gold-ink);text-decoration:underline">safety information</a> are freely available, and you can reach us at <a href="mailto:contact@equalsplit.org" style="color:var(--gold-ink);text-decoration:underline">contact@equalsplit.org</a> with questions.</p>
+      <div class="prod-actions fu d3">
+        
+        <a href="/donate/" class="btn-ghost-dark" style="display:inline-block;text-decoration:none">Donate</a>
+      </div>
 
-</div>
-</section>
+      <div class="aid-cta fu d3">
+        <div class="aid-cta-text">
+          <div class="aid-cta-head">Can't afford a unit?</div>
+        </div>
+        <a href="/apply/" class="aid-cta-btn">Apply for a Free Unit &rarr;</a>
+      </div>
+
+      <p style="font-size:.82rem;font-weight:300;color:var(--gray);margin-bottom:1rem">Programs able to purchase a set can do so at <a href="https://equalsplitshop.com" style="color:var(--gold-ink);font-weight:500;text-decoration:underline">equalsplitshop.com</a>, our separate store site.</p>
+      <div class="financial-note fu d3">
+        Purchasing is handled on our separate store site, <a href="https://equalsplitshop.com">equalsplitshop.com</a>, including international orders.
+      </div>
+    </div>
+  </div>
+
+  <section class="faq-sec">
+    <h2 class="sec-title">COMMON QUESTIONS</h2>
+    <p class="faq-sub">Something we didn't cover? <a href="#" onclick="openQuestionModal();return false" style="color:var(--gold);text-decoration:underline">Ask us anything.</a></p>
+    <div class="faq-cards">
+      <details class="mode-card">
+        <summary>Does it perform as well as more expensive systems?</summary>
+        <p class="mode-card-desc">For sprint timing, yes. We've verified accuracy to roughly &plusmn;5 milliseconds with controlled physics drop tests &mdash; the same ballpark as systems costing $500 or more, and far beyond hand timing, which is typically off by 200+ milliseconds. What you're not paying for is a brand name and a subscription.</p>
+      </details>
+      
+      <details class="mode-card">
+        <summary>How does the free unit program work?</summary>
+        <p class="mode-card-desc">Every unit sold funds a donated one. If you coach at an underfunded school or program, <a href="/apply/" style="color:var(--gold);font-weight:500;text-decoration:underline">apply for a free unit</a>. We read every application.</p>
+      </details>
+      <details class="mode-card">
+        <summary>Who makes this?</summary>
+        <p class="mode-card-desc">High school students in Oak Park, California. EqualSplit is a registered 501(c)(3) nonprofit, and we build, test, and ship every unit ourselves.</p>
+      </details>
+      <details class="mode-card">
+        <summary>What if it breaks?</summary>
+        <p class="mode-card-desc">Every unit comes with a 90-day warranty. If it fails under normal use, we repair or replace it at no charge.</p>
+      </details>
+    </div>
+  </section>
 </main>
 
 <footer>
