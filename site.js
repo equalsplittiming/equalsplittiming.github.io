@@ -5,7 +5,7 @@
 // ── STORE MODE ──────────────────────────────────────────
 // Switch to "waitlist" when sold out or need build time
 const STORE_MODE = "buy"; // "buy" or "waitlist"
-const SQUARE_LINK = "https://square.link/u/JSqmHsi5";
+const STORE_LINK = "https://equalsplitshop.com";
 
 // ── MODALS ──────────────────────────────────────────────
 function openReserveModal(){document.getElementById('modal-reserve').classList.add('open')}
@@ -24,7 +24,7 @@ if(STORE_MODE === "buy"){
   if(navCta) navCta.textContent = "Buy";
   if(ctaBtn){
     ctaBtn.textContent = "Buy Now \u00B7 $79.99";
-    ctaBtn.onclick = function(e){ e.preventDefault(); window.open(SQUARE_LINK,'_blank'); };
+    ctaBtn.onclick = function(e){ e.preventDefault(); window.open(STORE_LINK,'_blank'); };
   }
 } else {
   if(navCta) navCta.textContent = "Reserve";
