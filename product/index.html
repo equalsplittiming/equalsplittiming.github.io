@@ -203,26 +203,7 @@
   </div>
 </footer>
 
-<div class="modal-overlay" id="modal-reserve">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-reserve')">×</button>
-    <p class="modal-tag">Reserve</p>
-    <h2>Reserve a Unit</h2>
-    <p>We'll reach out when your unit is ready to ship. No payment now.</p>
-    <div data-fs-success id="reserve-success" class="form-success">
-      <div class="fs-icon">✓</div>
-      <p>You're on the list. <strong>We'll be in touch.</strong><br>Questions? Email us at <a href="mailto:contact@equalsplit.org" style="color:var(--gold)">contact@equalsplit.org</a></p>
-    </div>
-    <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
-    <form id="form-reserve" action="https://formspree.io/f/xgobzvld" method="POST">
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-      <div class="form-row"><label>Your Name</label><input type="text" name="name" data-fs-field placeholder="First and last name" required></div>
-      <div class="form-row"><label>Email</label><input type="email" name="email" data-fs-field placeholder="you@example.com" required></div>
-      <div class="form-row"><label>Anything else? (optional)</label><textarea name="note" placeholder="School, team, questions..."></textarea></div>
-      <button class="form-submit" type="submit" data-fs-submit-btn>Reserve My Spot</button>
-    </form>
-  </div>
-</div>
+
 
 
 <div class="modal-overlay" id="modal-question">
@@ -249,31 +230,7 @@
 </div>
 
 
-<div class="modal-overlay" id="modal-international">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-international')">×</button>
-    <p class="modal-tag">International Orders</p>
-    <h2>Order From Outside the US</h2>
-    <p>International shipping is quoted per order. Send us your details and we'll email you a total, usually within a day or two. Import duties and taxes are collected by the carrier on delivery and are the buyer's responsibility.</p>
-    <div data-fs-success id="international-success" class="form-success" style="display:none">
-      <div class="fs-icon">✓</div>
-      <p>Got it! <strong>We'll email you a shipping quote soon.</strong><br>You can also reach us at <a href="mailto:contact@equalsplit.org" style="color:var(--gold)">contact@equalsplit.org</a></p>
-    </div>
-    <div data-fs-error style="color:#c0392b;font-size:.8rem;margin-bottom:.75rem;display:none"></div>
-    <form id="form-international" action="https://formspree.io/f/xykqoybn" method="POST">
-      <input type="hidden" name="_subject" value="EqualSplit — International Inquiry">
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-      <div class="form-row"><label>Your Name</label><input type="text" name="name" placeholder="First and last name" required></div>
-      <div class="form-row"><label>Email</label><input type="email" name="email" placeholder="you@example.com" required></div>
-      <div class="form-row"><label>Phone Number</label><input type="tel" name="phone" placeholder="Required for the customs form" required></div>
-      <div class="form-row"><label>Country</label><input type="text" name="country" placeholder="e.g. United Kingdom" required></div>
-      <div class="form-row"><label>Full Shipping Address</label><textarea name="address" placeholder="Street, city, postal code" required></textarea></div>
-      <div class="form-row"><label>How many units?</label><input type="text" name="quantity" placeholder="e.g. 1"></div>
-      <div class="form-row"><label>Anything else? (optional)</label><textarea name="note" placeholder="Questions, team details..."></textarea></div>
-      <button class="form-submit" type="submit">Request a Shipping Quote</button>
-    </form>
-  </div>
-</div>
+
 
 
 <script src="/site.js"></script>
