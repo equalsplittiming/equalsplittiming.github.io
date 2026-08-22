@@ -121,6 +121,12 @@ function attachSuccess(formId, successId) {
       if (res.ok) {
         form.style.display = 'none';
         document.getElementById(successId).style.display = 'block';
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            form_id: formId,
+            form_type: formId === 'form-financial' ? 'free_unit_application' : 'question'
+          });
+        }
         return;
       }
       let msg = 'Something went wrong.';
@@ -185,4 +191,19 @@ attachSuccess('form-international', 'international-success');
     const go = v.play();
     if(go && go.catch) go.catch(function(){});
   }
+})();
+
+// ── OUTBOUND CLICK TRACKING (donate / store) ────────────
+// outbound_click_tracking
+(function(){
+  document.addEventListener('click', function(e){
+    const a = e.target.closest && e.target.closest('a');
+    if (!a || typeof gtag !== 'function') return;
+    const href = a.getAttribute('href') || '';
+    if (href.indexOf('zeffy.com') > -1) {
+      gtag('event', 'donate_click', { link_url: href });
+    } else if (href.indexOf('equalsplitshop.com') > -1) {
+      gtag('event', 'store_click', { link_url: href });
+    }
+  }, true);
 })();
