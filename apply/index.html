@@ -125,6 +125,7 @@
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-row"><label>Your Name</label><input type="text" name="name" data-fs-field placeholder="First and last name" required></div>
         <div class="form-row"><label>Email</label><input type="email" name="email" data-fs-field placeholder="you@example.com" required></div>
+        <div class="form-row"><label>Phone Number</label><input type="tel" name="phone" placeholder="Optional, in case email bounces"></div>
         <div class="form-row"><label>Type of Program</label>
           <select name="program_type" required>
             <option value="" disabled selected>Select one</option>
@@ -140,6 +141,14 @@
         <div class="form-row"><label>How many athletes would benefit?</label><input type="text" name="athletes" placeholder="e.g. 25"></div>
         <div class="form-row"><label>How do you time sprints now?</label><input type="text" name="current_timing" placeholder="e.g. hand timing with stopwatch"></div>
         <div class="form-row"><label>Tell us about your situation</label><textarea name="situation" data-fs-field placeholder="Why does your program need support?" required></textarea></div>
+        <div class="form-row"><label>May we quote your application when applying for grants?</label>
+          <select name="quote_permission" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Yes, and you may name our program</option>
+            <option>Yes, but please do not name our program</option>
+            <option>No</option>
+          </select>
+        </div>
         <button class="form-submit" type="submit" data-fs-submit-btn>Submit Application</button>
       </form>
 
