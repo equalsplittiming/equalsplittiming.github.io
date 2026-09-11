@@ -445,3 +445,12 @@ footer{overflow-x:hidden}
 }
 
 .f-proceeds{display:inline-block;max-width:40rem;margin-bottom:.5rem;color:rgba(248,246,240,.62)}
+
+/* BUTTON OVERFLOW ON SMALL SCREENS */
+.btn-gold,.btn-ghost-dark,.btn-ghost{max-width:100%;box-sizing:border-box;text-align:center}
+@media(max-width:600px){
+  .btn-gold,.btn-ghost-dark,.btn-ghost{font-size:.68rem;letter-spacing:.08em;padding-left:1.15rem;padding-right:1.15rem}
+}
+@media(max-width:430px){
+  .btn-gold,.btn-ghost-dark,.btn-ghost{display:block;width:100%}
+}
