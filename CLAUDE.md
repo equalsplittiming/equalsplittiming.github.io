@@ -55,7 +55,7 @@ These are our own choices, not Google rules. They still hold, but the reasoning 
 
 ## Before pushing
 
-Run `python3 check.py` and confirm it reports clean. It scans every page for broken internal links, missing alt text and image dimensions, missing titles and meta descriptions, multiple h1s, `target="_blank"` without noopener, missing analytics tags, and duplicate headings.
+Run `python3 check.py` and confirm it reports clean. It scans every page for broken internal links, missing alt text and image dimensions, missing titles and meta descriptions, missing or multiple h1s, `target="_blank"` without noopener, missing analytics tags, and duplicate headings.
 
 ## Tone
 
