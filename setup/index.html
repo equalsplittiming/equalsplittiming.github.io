@@ -67,7 +67,7 @@
 
     <div style="background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.28);padding:1.1rem 1.35rem;margin-bottom:2.2rem">
       <p style="font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 .45rem">You Do Not Need the App</p>
-      <p style="margin:0;font-size:.88rem;font-weight:300;line-height:1.7;color:var(--navy)">Your gates time runs entirely on their own. Everything on this page works straight out of the box, with no phone, no pairing, and no account. The companion app is optional and only adds saving and reviewing results over time.</p>
+      <p style="margin:0;font-size:.88rem;font-weight:300;line-height:1.7;color:var(--navy)">Your gates time runs entirely on their own. Everything on this page works straight out of the box, with no phone, no pairing, and no account. The <a href="#mobile-app" style="color:var(--navy);font-weight:500;text-decoration:underline">EqualSplit Timing app</a> is optional. It adds rosters, saved run history, extra drill modes like L Drill and Shuttle Run, and video timing.</p>
     </div>
 
     <div style="font-weight:300;line-height:1.75;color:var(--gray);font-size:.92rem">
@@ -125,14 +125,35 @@
       <p style="margin-top:.8rem">That splits a sprint into its start and its top-end in a single run, which Mode 1 can't show you. Use it for block starts and standing starts where the acceleration phase matters as much as the finish.</p>
 
       <h4 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.1rem;color:var(--navy);margin:1.8rem 0 .5rem">Clearing a result</h4>
-      <p>A result stays on screen until you press a button, which takes you back to the home screen ready for the next rep. Write the number down before you clear it &mdash; the gates keep a short run history on the home screen, but they don't store times against athletes or sessions on their own.</p>
+      <p>A result stays on screen until you press a button, which takes you back to the home screen ready for the next rep. Write the number down before you clear it. The gates keep a short run history on the home screen, but they don't store times against athletes or sessions on their own. If you want that, the <a href="#mobile-app" style="color:var(--gold);font-weight:500;text-decoration:underline">app</a> saves every run to an athlete and a session.</p>
 
-      <h3 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.35rem;color:var(--navy);margin:2.4rem 0 .6rem">MOBILE APP</h3>
-      <p>A companion app for saving runs, tracking athletes over time, and reviewing session history is in development. It is not required to time anything. Your gates already do everything described above on their own, and they'll keep doing it whether or not you ever install the app. We'll let you know when it's ready.</p>
+      <h3 id="mobile-app" style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.35rem;color:var(--navy);margin:2.4rem 0 .6rem">MOBILE APP</h3>
+      <p>EqualSplit Timing is our app for iPhone and iPad, <a href="https://apps.apple.com/us/app/equalsplit-timing/id6811709944" target="_blank" rel="noopener" style="color:var(--gold);font-weight:500;text-decoration:underline">available on the App Store</a>. It pairs your phone or tablet with your gates. The gates still take the time; the app runs the session, keeps your roster, and shows each athlete's progress.</p>
+
+      <h4 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.1rem;color:var(--navy);margin:1.8rem 0 .5rem">It's optional</h4>
+      <p>Nothing above changes if you never install it. The gates time every run on their own, and you arm a run with the button on the display gate just like before. The phone is not part of the timing. Every time comes from the clock the two gates share over their own radio link, not from Bluetooth or the phone, so connecting the app doesn't change the gates' accuracy of roughly &plusmn;5 milliseconds.</p>
+      <p style="margin-top:.8rem">If you use the app but still want to start runs from the gate button, turn on the setting that saves gate-started runs to the app. With it on, those runs are saved as long as the phone is connected.</p>
+
+      <h4 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.1rem;color:var(--navy);margin:1.8rem 0 .5rem">Connecting</h4>
+      <p>Turn both gates on, open the app, and press <strong style="color:var(--navy);font-weight:500">Connect</strong>. The first time, the app asks to use Bluetooth. Allow it, since that is how the app talks to your own gates.</p>
+      <p style="margin-top:.8rem">If you have more than one set, you can pick which set to connect to, and a badge in the app shows which one you're controlling. Each phone controls one set, so use one phone per set when running them side by side.</p>
+
+      <h4 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.1rem;color:var(--navy);margin:1.8rem 0 .5rem">What the app adds</h4>
+      <ul style="margin:.4rem 0 0 1.1rem;padding:0">
+        <li style="margin-bottom:.5rem"><strong style="color:var(--navy);font-weight:500">Drills.</strong> L Drill (Gate 1 to Gate 2), Shuttle Run (one gate, there and back), Continuous laps (one gate records every lap, with an optional lap target; it can merge stray crossings and flags laps that look too short), and Repeats with rest (each rep saved on its own, rest never counted). An adjustable lockout window keeps one crossing from being counted twice.</li>
+        <li style="margin-bottom:.5rem"><strong style="color:var(--navy);font-weight:500">Roster and lineup.</strong> Put athletes in groups and set today's lineup. After each run the app moves to the next athlete, and you can skip, undo, jump, or reorder. Save lineups as templates, undo the last run, and archive athletes without losing their runs.</li>
+        <li style="margin-bottom:.5rem"><strong style="color:var(--navy);font-weight:500">Live readout.</strong> A big time display that settles on the measured time at the finish. On an iPad it fills the screen.</li>
+        <li style="margin-bottom:.5rem"><strong style="color:var(--navy);font-weight:500">Progress and history.</strong> Each athlete's page has a chart for every drill marking their best, latest, and PRs. History is grouped by session and day. You can rename sessions, filter by athlete, see session averages, move a run to a different athlete or drill, add notes, and share a result as text. Runs not yet assigned to an athlete are easy to find.</li>
+        <li style="margin-bottom:.5rem"><strong style="color:var(--navy);font-weight:500">Video timing.</strong> Record at 30, 60, 120, or 240 fps, or import a clip. Mark the start and finish on a filmstrip, stepping one frame at a time, and the app shows the error margin next to the time. It checks the frame rate and refuses slow-motion and time-lapse clips. The video stays attached to the run, and video-timed runs appear on the same chart, marked as video.</li>
+        <li style="margin-bottom:.5rem"><strong style="color:var(--navy);font-weight:500">Built for the track.</strong> Large touch targets you can use one-handed, outdoors, or in gloves, with layouts for both iPhone and iPad.</li>
+      </ul>
+
+      <h4 style="font-family:var(--font-display);letter-spacing:.04em;font-size:1.1rem;color:var(--navy);margin:1.8rem 0 .5rem">Your data stays on your device</h4>
+      <p>There is no account and nothing is uploaded. Your roster, runs, and video stay on the phone or tablet, and the camera never records sound. See our <a href="/privacy/" style="color:var(--gold);font-weight:500;text-decoration:underline">privacy page</a> for details.</p>
 
       <div style="margin-top:2rem;background:var(--offwhite);padding:1.75rem;border-left:3px solid var(--gold)">
         <p style="font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem">Need a Hand?</p>
-        <p style="margin:0;color:var(--navy)">We answer every message personally. Email <a href="mailto:contact@equalsplit.org" style="color:var(--gold);font-weight:500">contact@equalsplit.org</a> with any question about setup, your order, or the upcoming app.</p>
+        <p style="margin:0;color:var(--navy)">We answer every message personally. Email <a href="mailto:contact@equalsplit.org" style="color:var(--gold);font-weight:500">contact@equalsplit.org</a> with any question about setup, your order, or the app.</p>
       </div>
 
       <p style="margin-top:2.4rem;font-size:.8rem;color:rgba(0,0,0,.45)">EqualSplit is a 501(c)(3) nonprofit based in Oak Park, California. Contact: <a href="mailto:contact@equalsplit.org" style="color:var(--gold)">contact@equalsplit.org</a></p>
